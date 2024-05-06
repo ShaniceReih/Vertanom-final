@@ -20,18 +20,15 @@ Login::Login(QWidget *parent)
 {
     ui->setupUi(this);
 
-    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db");
-    if (sqlitedb.open())
-    {
-        qDebug () << "Database is Connected";
-    }
-    else
-    {
+    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db");
+
+    if (sqlitedb.open()) {
+        qDebug() << "Database is Connected";
+    } else {
         qDebug() << "Database is not Connected";
         qDebug() << "Error:" << sqlitedb.lastError().text(); // Print the error message
     }
 }
-
 Login::~Login()
 {
     delete ui;

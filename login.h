@@ -34,6 +34,7 @@ private slots:
 
 private:
     Ui::Login *ui;
-     QSqlDatabase sqlitedb;
+    QSqlDatabase sqlitedb;
+    void createTable();
 };
 #endif // LOGIN_H

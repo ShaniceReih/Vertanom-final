@@ -5,6 +5,9 @@
 #include <QStandardItemModel>
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QtSql/QtSql>
+#include <QSqlDatabase>
+
 namespace Ui {
 class MainPage;
 }
@@ -17,10 +20,15 @@ public:
     explicit MainPage(QWidget *parent = nullptr);
     ~MainPage();
 
+private slots:
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainPage *ui;
     QStandardItemModel *model;
     QMessageBox *msg;
+    QSqlDatabase sqlitedb;
 };
 
 #endif // MAINPAGE_H

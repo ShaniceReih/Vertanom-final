@@ -270,6 +270,7 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtCore/qxpfunctional.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.7.0/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/QStandardItemModel \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qbrush.h \
@@ -283,12 +284,18 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpalette.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qstandarditemmodel.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qtextcursor.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qtextdocument.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qtextformat.h \
+  C:/Qt/6.7.0/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiglobal.h \
@@ -316,6 +323,7 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
@@ -328,6 +336,8 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/qinputdialog.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
