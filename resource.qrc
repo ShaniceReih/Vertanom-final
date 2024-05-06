@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/frfr.png</file>
+        <file>images/login background.png</file>
+        <file>images/logo.png</file>
+        <file>images/crying.png</file>
+        <file>images/Vertanom (1600 x 1080 px).png</file>
+        <file>images/Profile.png</file>
+        <file>images/Profile (1).png</file>
+    </qresource>
+</RCC>
