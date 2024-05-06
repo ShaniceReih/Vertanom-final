@@ -2,7 +2,9 @@
 #define MAINPAGE_H
 
 #include <QMainWindow>
-
+#include <QStandardItemModel>
+#include <QMessageBox>
+#include <QInputDialog>
 namespace Ui {
 class MainPage;
 }
@@ -17,6 +19,8 @@ public:
 
 private:
     Ui::MainPage *ui;
+    QStandardItemModel *model;
+    QMessageBox *msg;
 };
 
 #endif // MAINPAGE_H
