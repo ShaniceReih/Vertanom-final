@@ -85,6 +85,7 @@ public:
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_21;
     QLabel *label_22;
+    QPushButton *refreshData;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -369,10 +370,13 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout_9);
 
+        refreshData = new QPushButton(centralwidget);
+        refreshData->setObjectName("refreshData");
+        refreshData->setGeometry(QRect(480, 560, 391, 32));
         MainPage->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainPage);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1209, 25));
+        menubar->setGeometry(QRect(0, 0, 1362, 24));
         MainPage->setMenuBar(menubar);
         statusbar = new QStatusBar(MainPage);
         statusbar->setObjectName("statusbar");
@@ -412,7 +416,7 @@ public:
         label_11->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         label_12->setText(QCoreApplication::translate("MainPage", "Humidity", nullptr));
         label_13->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainPage", "Force Refresh", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainPage", "Refresh Counter", nullptr));
         label_14->setText(QCoreApplication::translate("MainPage", "Lastest Climatic Data", nullptr));
         label_15->setText(QCoreApplication::translate("MainPage", "Soil Moisture:", nullptr));
         label_16->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
@@ -422,6 +426,7 @@ public:
         label_20->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         label_21->setText(QCoreApplication::translate("MainPage", "Humidity:", nullptr));
         label_22->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        refreshData->setText(QCoreApplication::translate("MainPage", "Refresh Data", nullptr));
     } // retranslateUi
 
 };

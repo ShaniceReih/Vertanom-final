@@ -3,6 +3,12 @@
 #include <QDoubleValidator>
 #include <QDateTime>
 #include <QTableView>
+#include <QSqlDatabase>
+#include <QtSql/QSql>
+#include <QSqlQuery>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QDebug>
 
 
 MainPage::MainPage(QWidget *parent)
@@ -51,10 +57,40 @@ MainPage::MainPage(QWidget *parent)
 }
 
 
-
 void MainPage::on_pushButton_clicked()
 {
+    // Add the new SQLite database connection
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+
+    qDebug() << "Attempting to open database..."; // Add debug message
+
+    if (!sqlitedb.open()) {
+        QMessageBox::critical(this, "Database error", "Failed to open database: " + sqlitedb.lastError().text());
+        qDebug() << "Failed to open database:" << sqlitedb.lastError().text(); // Add debug message
+        return;
+    }
+
+    qDebug() << "Database opened successfully."; // Add debug message
+     QSqlQuery query(sqlitedb); // Pass the database connection to the query
+
+    // Create sensor_data table if it doesn't exist
+    QString createTableQuery = "CREATE TABLE IF NOT EXISTS sensor_data ("
+                               "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                               "sensor_type TEXT NOT NULL,"
+                               "date_time TEXT NOT NULL,"
+                               "value REAL NOT NULL,"
+                               "status TEXT NOT NULL)";
+    if (!query.exec(createTableQuery)) {
+        QMessageBox::critical(this, "Database error", "Error creating table: " + query.lastError().text());
+        qDebug() << "Error creating table:" << query.lastError().text(); // Add debug message
+        sqlitedb.close();
+        return;
+    }
+
+    // Get Input from UI
     QString userInput = ui->sensorValue->displayText();
+    QString selectedSensor = ui->comboBox->currentText();
 
     // Create a QDoubleValidator to Sensor Value Input
     QDoubleValidator validator;
@@ -65,12 +101,25 @@ void MainPage::on_pushButton_clicked()
         QMessageBox::critical(this, "Validation Error", "Input must be a valid double.");
     } else {
         // Input is a valid double
-        QString dateTime = QDateTime::currentDateTime().toString("MMM d, yyyy h:mmAP"); // Get current date and time
+        QString dateTime = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"); // Get current date and time
         QString sensorValue = userInput;
         QString status = "NORMAL";
 
-        // Check the selected item in the combo box
-        QString selectedSensor = ui->comboBox->currentText();
+        // Prepare the SQL query to insert data into the database
+        QSqlQuery query(sqlitedb);
+        query.prepare("INSERT INTO sensor_data (sensor_type, date_time, value, status) "
+                      "VALUES (:sensor_type, :date_time, :value, :status)");
+        query.bindValue(":sensor_type", selectedSensor);
+        query.bindValue(":date_time", dateTime);
+        query.bindValue(":value", sensorValue);
+        query.bindValue(":status", status);
+
+        // Execute the query
+        if (!query.exec()) {
+            QMessageBox::critical(this, "Database error", "Failed to insert data into database: " + query.lastError().text());
+            qDebug() << "Failed to insert data into database:" << query.lastError().text(); // Add debug message
+            return;
+        }
 
         // Access the correct tab widget based on the selected sensor
         QWidget *currentTabWidget = nullptr;
@@ -84,7 +133,7 @@ void MainPage::on_pushButton_clicked()
             currentTabWidget = ui->temperatureTab;
         } else {
             // Handle other combo box selections here
-            QMessageBox::warning(this, "Not Handled", "Selected combo box item is not handled.");
+            QMessageBox::warning(this, "Not Handled", "Selected Sensor item is not handled.");
             return;
         }
 
@@ -108,9 +157,9 @@ void MainPage::on_pushButton_clicked()
     }
 }
 
+
 MainPage::~MainPage()
 {
     delete ui;
 }
-
 

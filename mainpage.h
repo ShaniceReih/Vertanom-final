@@ -24,11 +24,15 @@ private slots:
 
     void on_pushButton_clicked();
 
+
+
+
 private:
     Ui::MainPage *ui;
     QStandardItemModel *model;
     QMessageBox *msg;
     QSqlDatabase sqlitedb;
+
 };
 
 #endif // MAINPAGE_H
