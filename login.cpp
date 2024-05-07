@@ -92,7 +92,7 @@ void Login::on_pushButtonLogin_clicked()
 void Login::on_pushButtonCancel_clicked()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Shanice Reih", "Are you sure to close the Application?", QMessageBox::Yes | QMessageBox::No);
+    reply = QMessageBox::question(this, "UserName", "Are you sure to close the Application?", QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes)
     {
         QApplication::quit();
