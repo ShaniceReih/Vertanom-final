@@ -23,12 +23,17 @@ public:
 private slots:
 
     void on_pushButton_clicked();
+     void getCurrentUserId();
+    void getLoggedInUsername();
+
+
 
 private:
     Ui::MainPage *ui;
     QStandardItemModel *model;
     QMessageBox *msg;
     QSqlDatabase sqlitedb;
+
 };
 
 #endif // MAINPAGE_H

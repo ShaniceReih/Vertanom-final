@@ -3,16 +3,18 @@
 #include <QDoubleValidator>
 #include <QDateTime>
 #include <QTableView>
-
+#include <QSqlDatabase>
+#include <QtSql/QSql>
+#include <QSqlQuery>
+#include <QMessageBox>
+#include <QSqlError>
+#include <QDebug>
 
 MainPage::MainPage(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainPage)
 {
     ui->setupUi(this);
-    //add ComboBox Sensor
-
-
 
     // Initialize models for each table
     model = new QStandardItemModel();
@@ -46,17 +48,102 @@ MainPage::MainPage(QWidget *parent)
     model->setHorizontalHeaderItem(1, new QStandardItem(QString("Sensor Value")));
     model->setHorizontalHeaderItem(2, new QStandardItem(QString("Status")));
     ui->temperatureTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-
 }
 
+int MainPage::getCurrentUserId() {
+    // Replace this placeholder logic with your actual implementation to get the current user's ID
 
+    // Assuming you have a user authentication system and you're storing the currently logged-in user's credentials
+    QString loggedInUsername = getLoggedInUsername(); // Placeholder method to get the logged-in username
+
+    // Initialize Database
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("/path/to/your/database.db"); // Replace with your database file path
+
+    qDebug() << "Attempting to open database...";
+
+    if (!sqlitedb.open()) {
+        QMessageBox::critical(this, "Database error", "Failed to open database: " + sqlitedb.lastError().text());
+        qDebug() << "Failed to open database:" << sqlitedb.lastError().text();
+        return -1; // Return -1 to indicate failure
+    }
+
+    qDebug() << "Database opened successfully.";
+
+    // Query to retrieve the user ID based on the logged-in username
+    QString selectQuery = "SELECT id FROM users WHERE username = :username"; // Assuming the column name for username is 'username'
+
+    QSqlQuery query(sqlitedb);
+    query.prepare(selectQuery);
+    query.bindValue(":username", loggedInUsername);
+
+    // Execute the query
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Database error", "Error fetching user ID: " + query.lastError().text());
+        qDebug() << "Error executing select query:" << query.lastError().text();
+        sqlitedb.close();
+        return -1; // Return -1 to indicate failure
+    }
+
+    // Retrieve the user ID
+    if (query.next()) {
+        int userId = query.value(0).toInt(); // Assuming the user ID is in the first column
+        qDebug() << "User ID for" << loggedInUsername << "is" << userId;
+        return userId;
+    } else {
+        qDebug() << "No user found for" << loggedInUsername;
+        return -1; // Return -1 to indicate failure
+    }
+
+    // Close the database connection
+    sqlitedb.close();
+}
+QString MainPage::getLoggedInUsername() {
+    // Replace this placeholder logic with your actual implementation to retrieve the logged-in username
+    // This might involve accessing session variables, global variables, or retrieving the username from the authentication context
+    return "example_user"; // Placeholder username
+}
 
 void MainPage::on_pushButton_clicked()
 {
     QString userInput = ui->sensorValue->displayText();
 
-    // Create a QDoubleValidator to Sensor Value Input
+
+    // Initialize Database
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db");
+
+    qDebug() << "Attempting to open database...";
+
+    if (!sqlitedb.open()) {
+        QMessageBox::critical(this, "Database error", "Failed to open database: " + sqlitedb.lastError().text());
+        qDebug() << "Failed to open database:" << sqlitedb.lastError().text();
+        return;
+    }
+
+    qDebug() << "Database opened successfully.";
+
+    QSqlQuery query(sqlitedb);
+
+    // Create sensors table if it doesn't exist
+    QString createSensorsTableQuery = "CREATE TABLE IF NOT EXISTS sensors ("
+                                      "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                                      "user_id INTEGER NOT NULL,"
+                                      "soil_moisture REAL NOT NULL,"
+                                      "ph REAL NOT NULL,"
+                                      "turbidity REAL NOT NULL,"
+                                      "temperature REAL NOT NULL,"
+                                      "FOREIGN KEY (user_id) REFERENCES users(id))";
+
+    if (!query.exec(createSensorsTableQuery)) {
+        QMessageBox::critical(this, "Database error", "Error creating sensors table: " + query.lastError().text());
+        qDebug() << "Error creating sensors table:" << query.lastError().text();
+        sqlitedb.close();
+        return;
+    }
+    qDebug() << "Table created successfully.";
+
+    // Validate input
     QDoubleValidator validator;
     int pos = 0;
     QValidator::State state = validator.validate(userInput, pos);
@@ -72,45 +159,40 @@ void MainPage::on_pushButton_clicked()
         // Check the selected item in the combo box
         QString selectedSensor = ui->comboBox->currentText();
 
-        // Access the correct tab widget based on the selected sensor
-        QWidget *currentTabWidget = nullptr;
-        if (selectedSensor == "pH") {
-            currentTabWidget = ui->phTab;
-        } else if (selectedSensor == "Soil Moisture") {
-            currentTabWidget = ui->soilMoistureTab;
-        } else if (selectedSensor == "Humidity") {
-            currentTabWidget = ui->humidityTab;
+        // Insert data into the sensors table based on selected sensor
+        QString insertQuery;
+        if (selectedSensor == "Soil Moisture") {
+            insertQuery = "INSERT INTO sensors (user_id, soil_moisture) VALUES (?, ?)";
+        } else if (selectedSensor == "pH") {
+            insertQuery = "INSERT INTO sensors (user_id, ph) VALUES (?, ?)";
+        } else if (selectedSensor == "Turbidity") {
+            insertQuery = "INSERT INTO sensors (user_id, turbidity) VALUES (?, ?)";
         } else if (selectedSensor == "Temperature") {
-            currentTabWidget = ui->temperatureTab;
+            insertQuery = "INSERT INTO sensors (user_id, temperature) VALUES (?, ?)";
         } else {
-            // Handle other combo box selections here
             QMessageBox::warning(this, "Not Handled", "Selected combo box item is not handled.");
             return;
         }
 
-        // Access the table widget within the current tab widget
-        QTableView *currentTableView = currentTabWidget->findChild<QTableView *>();
+        query.prepare(insertQuery);
+        query.bindValue(0, 2);
+        query.bindValue(1, userInput.toDouble());
 
-        if (currentTableView) {
-            // Add new row to the table
-            QStandardItemModel *currentModel = dynamic_cast<QStandardItemModel *>(currentTableView->model());
-            if (currentModel) {
-                QList<QStandardItem *> newRowItems;
-                newRowItems << new QStandardItem(dateTime) << new QStandardItem(sensorValue) << new QStandardItem(status);
-                currentModel->appendRow(newRowItems);
-                currentTableView->viewport()->update();
-            }
+        // Execute the query
+        if (!query.exec()) {
+            QMessageBox::critical(this, "Database error", "Error inserting data: " + query.lastError().text());
+            qDebug() << "Error executing insert query:" << query.lastError().text();
         } else {
-            QMessageBox::warning(this, "Table Not Found", "Table widget not found in the selected tab.");
+            qDebug() << "Data inserted successfully.";
+            QMessageBox::information(this, "Success", selectedSensor + " with a value of " + userInput + " has been saved.");
         }
-
-        QMessageBox::information(this, "Success", selectedSensor + " with a value of " + userInput + " has been saved.");
     }
+
+    // Close the database connection
+    sqlitedb.close();
 }
 
 MainPage::~MainPage()
 {
     delete ui;
 }
-
-
