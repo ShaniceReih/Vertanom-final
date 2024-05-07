@@ -92,7 +92,10 @@ public:
     {
         if (MainPage->objectName().isEmpty())
             MainPage->setObjectName("MainPage");
-        MainPage->resize(1362, 751);
+        MainPage->resize(1209, 689);
+        MainPage->setStyleSheet(QString::fromUtf8("MainPage{\n"
+"background-color: #013120;\n"
+"}"));
         centralwidget = new QWidget(MainPage);
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
@@ -160,6 +163,7 @@ public:
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->setObjectName("comboBox");
+        comboBox->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout->addWidget(comboBox);
 
@@ -368,7 +372,7 @@ public:
         MainPage->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainPage);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1362, 25));
+        menubar->setGeometry(QRect(0, 0, 1209, 25));
         MainPage->setMenuBar(menubar);
         statusbar = new QStatusBar(MainPage);
         statusbar->setObjectName("statusbar");

@@ -6,12 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1362</width>
-    <height>751</height>
+    <width>1209</width>
+    <height>689</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">MainPage{
+background-color: #013120;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -153,6 +158,9 @@
          </item>
          <item>
           <widget class="QComboBox" name="comboBox">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <item>
             <property name="text">
              <string>Soil Moisture</string>
@@ -470,7 +478,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1362</width>
+     <width>1209</width>
      <height>25</height>
     </rect>
    </property>
