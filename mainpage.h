@@ -22,9 +22,12 @@ public:
     void clearAllTables();
     void clearTable(QTableView *tableView);
     void fetchUserFirstName();
+
     void setGreetingLabelText(const QString& firstName);
     void createAbnormalCountsTable();
+    void fetchLatestSensorValues(QSqlDatabase &db);
     void updateAbnormalCount(const QString &sensorType, int abnormalCount);
+
 
 private slots:
 
@@ -32,6 +35,7 @@ private slots:
     //void on_refreshData_clicked();
     void on_reshData_clicked();
     void on_reshCounter_clicked();
+        void fetchLatestSensorValues();
 
 private:
     Ui::MainPage *ui;

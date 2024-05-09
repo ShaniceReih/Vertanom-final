@@ -18,7 +18,8 @@ MainPage::MainPage(QWidget *parent)
 {
     ui->setupUi(this);
     fetchUserFirstName(); // Call fetchUserFirstName() in the constructor
-
+    on_reshCounter_clicked();
+    fetchLatestSensorValues();
 
 
     //add ComboBox Sensor
@@ -60,15 +61,62 @@ MainPage::MainPage(QWidget *parent)
 
 }
 
+
 void MainPage::setGreetingLabelText(const QString& firstName) {
     QString greetingText = firstName + "'s Vertanom";
     ui->greetingLabel->setText(greetingText);
 }
 
+void MainPage::fetchLatestSensorValues() {
+    // Establish connection to the SQLite database
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
+
+    qDebug() << "Attempting to open database for fetching latest sensor values..."; // Add debug message
+
+    if (!sqlitedb.open()) {
+        QMessageBox::critical(this, "Database error", "Failed to open database: " + sqlitedb.lastError().text());
+        qDebug() << "Failed to open database for fetching latest sensor values:" << sqlitedb.lastError().text(); // Add debug message
+        return;
+    }
+
+    qDebug() << "Database opened successfully for fetching latest sensor values."; // Add debug message
+
+    // Execute queries to fetch latest sensor values
+    QString queryStr = "SELECT value FROM sensor_data WHERE sensor_type = ? ORDER BY date_time DESC LIMIT 1";
+    QStringList sensorTypes = {"Soil Moisture", "pH", "Temperature", "Humidity"};
+    for (const QString& sensorType : sensorTypes) {
+        QSqlQuery query(sqlitedb);
+        query.prepare(queryStr);
+        query.bindValue(0, sensorType);
+        if (!query.exec()) {
+            qDebug() << "Failed to fetch latest value for" << sensorType << ":" << query.lastError().text();
+            continue;
+        }
+        if (query.next()) {
+            QString latestValue = query.value(0).toString();
+            // Update the corresponding text label
+            if (sensorType == "Soil Moisture") {
+                ui->soilMoistureLatest->setText(latestValue);
+            } else if (sensorType == "pH") {
+                ui->phLatest->setText(latestValue);
+            } else if (sensorType == "Temperature") {
+                ui->temperatureLatest->setText(latestValue);
+            } else if (sensorType == "Humidity") {
+                ui->humidityLatest->setText(latestValue);
+            }
+        }
+    }
+
+    sqlitedb.close();
+}
+
+
+
 void MainPage::fetchUserFirstName() {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for fetching user's first name..."; // Add debug message
 
@@ -109,7 +157,7 @@ void MainPage::createAbnormalCountsTable()
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for creating abnormal counts table..."; // Add debug message
 
@@ -144,7 +192,7 @@ void MainPage::updateAbnormalCount(const QString &sensorType, int abnormalCount)
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for updating abnormal counts..."; // Add debug message
 
@@ -187,7 +235,7 @@ void MainPage::on_pushButton_clicked()
 {
     // Add the new SQLite database connection
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database..."; // Add debug message
 
@@ -310,7 +358,7 @@ void MainPage::on_reshData_clicked()
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for refreshing data..."; // Add debug message
 
@@ -408,7 +456,7 @@ void MainPage::on_reshCounter_clicked()
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for refreshing counter data..."; // Add debug message
 

@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1241</width>
-    <height>780</height>
+    <width>1202</width>
+    <height>826</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -22,8 +27,8 @@ background-color: #AA91A9;
    <widget class="QLabel" name="greetingLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>30</y>
+      <x>20</x>
+      <y>20</y>
       <width>371</width>
       <height>41</height>
      </rect>
@@ -47,7 +52,7 @@ color: #472F5B;
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>70</y>
+      <y>60</y>
       <width>321</width>
       <height>31</height>
      </rect>
@@ -69,11 +74,17 @@ color: #472F5B;
    <widget class="QTabWidget" name="pH">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>150</y>
-      <width>391</width>
-      <height>401</height>
+      <x>500</x>
+      <y>110</y>
+      <width>641</width>
+      <height>611</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QTabWidget{
@@ -85,7 +96,7 @@ font-weight: bold;
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="soilMoistureTab">
      <attribute name="title">
@@ -96,8 +107,8 @@ font-weight: bold;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>391</width>
-        <height>371</height>
+        <width>641</width>
+        <height>571</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -118,8 +129,8 @@ font-weight:bold;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>391</width>
-        <height>371</height>
+        <width>641</width>
+        <height>571</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -140,8 +151,8 @@ font-weight:bold;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>391</width>
-        <height>371</height>
+        <width>641</width>
+        <height>571</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -162,8 +173,8 @@ font-weight:bold;
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>391</width>
-        <height>371</height>
+        <width>641</width>
+        <height>571</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -179,8 +190,8 @@ font-weight:bold;
    <widget class="QPushButton" name="reshData">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>560</y>
+      <x>630</x>
+      <y>730</y>
       <width>391</width>
       <height>32</height>
      </rect>
@@ -202,10 +213,10 @@ font-weight: bold;
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>140</y>
-      <width>261</width>
-      <height>151</height>
+      <x>20</x>
+      <y>550</y>
+      <width>461</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -219,206 +230,288 @@ background-color: #FFB6C1;
     <property name="title">
      <string/>
     </property>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_7">
-       <item>
-        <widget class="QLabel" name="label_14">
-         <property name="font">
-          <font>
-           <pointsize>14</pointsize>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel{
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>224</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
 color: #472F5B;
 }</string>
-         </property>
-         <property name="text">
-          <string>Lastest Climatic Data</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <item>
-          <widget class="QLabel" name="label_15">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
-color: #472F5B;
-font-weight: bold;
-}</string>
-           </property>
-           <property name="text">
-            <string>Soil Moisture:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_16">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
+     </property>
+     <property name="text">
+      <string>Lastest Climatic Data</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>114</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="label_23">
+        <property name="font">
+         <font>
+          <pointsize>6</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: #472F5B;
 font-weight: bold;
 }</string>
-           </property>
-           <property name="text">
-            <string>&lt;value&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
-         <item>
-          <widget class="QLabel" name="label_17">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
+        </property>
+        <property name="text">
+         <string>Updated as of </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="currentTime">
+        <property name="font">
+         <font>
+          <pointsize>6</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: #472F5B;
 font-weight: bold;
 }</string>
-           </property>
-           <property name="text">
-            <string>pH:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_18">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
+        </property>
+        <property name="text">
+         <string>&lt;value&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>80</y>
+       <width>421</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QLabel" name="label_15">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: #472F5B;
 font-weight: bold;
 }</string>
-           </property>
-           <property name="text">
-            <string>&lt;value&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_8">
-         <item>
-          <widget class="QLabel" name="label_19">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
+        </property>
+        <property name="text">
+         <string>Soil Moisture:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="soilMoistureLatest">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: #472F5B;
 font-weight: bold;
 }</string>
-           </property>
-           <property name="text">
-            <string>Temperature:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_20">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
+        </property>
+        <property name="text">
+         <string> &lt;value&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>160</y>
+       <width>421</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_10">
+      <item>
+       <widget class="QLabel" name="label_21">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: #472F5B;
 font-weight: bold;
 }</string>
-           </property>
-           <property name="text">
-            <string>&lt;value&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_9">
-         <item>
-          <widget class="QLabel" name="label_21">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
+        </property>
+        <property name="text">
+         <string>Humidity:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="humidityLatest">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: #472F5B;
 font-weight: bold;
 }</string>
-           </property>
-           <property name="text">
-            <string>Humidity:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_22">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel{
+        </property>
+        <property name="text">
+         <string> &lt;value&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>23</x>
+       <y>131</y>
+       <width>421</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_9">
+      <item>
+       <widget class="QLabel" name="label_19">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: #472F5B;
 font-weight: bold;
 }</string>
-           </property>
-           <property name="text">
-            <string>&lt;value&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-    </layout>
+        </property>
+        <property name="text">
+         <string>Temperature:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="temperatureLatest">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color: #472F5B;
+font-weight: bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>&lt;value&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>23</x>
+       <y>109</y>
+       <width>421</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="label_17">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color: #472F5B;
+font-weight: bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>pH:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="phLatest">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color: #472F5B;
+font-weight: bold;
+}</string>
+        </property>
+        <property name="text">
+         <string> &lt;value&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>350</y>
+      <y>320</y>
       <width>461</width>
-      <height>261</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -437,8 +530,8 @@ background-color: #FFB6C1;
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>441</width>
-       <height>241</height>
+       <width>432</width>
+       <height>193</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -612,7 +705,7 @@ font-weight: bold;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
+      <y>110</y>
       <width>461</width>
       <height>201</height>
      </rect>
@@ -744,13 +837,31 @@ font-weight: bold;
      </layout>
     </widget>
    </widget>
+   <widget class="QScrollBar" name="verticalScrollBar">
+    <property name="geometry">
+     <rect>
+      <x>1179</x>
+      <y>20</y>
+      <width>21</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QScrollBar::vertical{
+background-color: #472F5B;
+}</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1241</width>
+     <width>1202</width>
      <height>25</height>
     </rect>
    </property>
