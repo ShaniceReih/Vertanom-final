@@ -32,6 +32,7 @@ private slots:
     //void on_refreshData_clicked();
     void on_reshData_clicked();
     void on_reshCounter_clicked();
+    //void on_verticalScrollBar_sliderMoved(int position);
 
 private:
     Ui::MainPage *ui;
