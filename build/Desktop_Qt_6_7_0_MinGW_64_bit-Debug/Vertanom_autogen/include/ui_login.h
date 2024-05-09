@@ -38,17 +38,20 @@ public:
     {
         if (Login->objectName().isEmpty())
             Login->setObjectName("Login");
-        Login->resize(847, 608);
+        Login->resize(646, 472);
         centralwidget = new QWidget(Login);
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(10, 10, 821, 541));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/Vertanom (1600 x 1080 px).png")));
+        label->setGeometry(QRect(20, 20, 601, 401));
+        label->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"  border-radius: 50px;\n"
+"}"));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/Vertanom (1600 x 1080 px) no bg 2.png")));
         label->setScaledContents(true);
         enterUsername = new QLineEdit(centralwidget);
         enterUsername->setObjectName("enterUsername");
-        enterUsername->setGeometry(QRect(180, 270, 211, 41));
+        enterUsername->setGeometry(QRect(90, 200, 211, 41));
         enterUsername->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 20px;\n"
@@ -65,7 +68,7 @@ public:
 ""));
         enterPassword = new QLineEdit(centralwidget);
         enterPassword->setObjectName("enterPassword");
-        enterPassword->setGeometry(QRect(180, 320, 211, 41));
+        enterPassword->setGeometry(QRect(90, 250, 211, 41));
         enterPassword->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 20px;\n"
@@ -83,7 +86,7 @@ public:
         enterPassword->setEchoMode(QLineEdit::Password);
         pushButtonLogin = new QPushButton(centralwidget);
         pushButtonLogin->setObjectName("pushButtonLogin");
-        pushButtonLogin->setGeometry(QRect(200, 370, 83, 29));
+        pushButtonLogin->setGeometry(QRect(110, 300, 83, 29));
         pushButtonLogin->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 13px;\n"
@@ -95,7 +98,7 @@ public:
 ""));
         pushButtonCancel = new QPushButton(centralwidget);
         pushButtonCancel->setObjectName("pushButtonCancel");
-        pushButtonCancel->setGeometry(QRect(290, 370, 83, 29));
+        pushButtonCancel->setGeometry(QRect(200, 300, 83, 29));
         pushButtonCancel->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 13px;\n"
@@ -107,7 +110,7 @@ public:
 ""));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(240, 410, 83, 29));
+        pushButton->setGeometry(QRect(150, 340, 83, 29));
         QFont font;
         font.setUnderline(true);
         pushButton->setFont(font);
@@ -118,7 +121,7 @@ public:
         Login->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Login);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 847, 25));
+        menubar->setGeometry(QRect(0, 0, 646, 25));
         Login->setMenuBar(menubar);
         statusbar = new QStatusBar(Login);
         statusbar->setObjectName("statusbar");

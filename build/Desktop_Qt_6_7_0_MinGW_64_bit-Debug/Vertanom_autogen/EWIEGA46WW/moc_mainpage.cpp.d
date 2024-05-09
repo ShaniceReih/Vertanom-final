@@ -326,6 +326,7 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QTableView \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -347,6 +348,7 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyleoption.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabbar.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtableview.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \

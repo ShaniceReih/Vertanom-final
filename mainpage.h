@@ -7,7 +7,7 @@
 #include <QInputDialog>
 #include <QtSql/QtSql>
 #include <QSqlDatabase>
-
+#include <QTableView>
 namespace Ui {
 class MainPage;
 }
@@ -19,13 +19,19 @@ class MainPage : public QMainWindow
 public:
     explicit MainPage(QWidget *parent = nullptr);
     ~MainPage();
+    void clearAllTables();
+    void clearTable(QTableView *tableView);
+    void fetchUserFirstName();
+    void setGreetingLabelText(const QString& firstName);
+    void createAbnormalCountsTable();
+    void updateAbnormalCount(const QString &sensorType, int abnormalCount);
 
 private slots:
 
     void on_pushButton_clicked();
-
-
-
+    //void on_refreshData_clicked();
+    void on_reshData_clicked();
+    void on_reshCounter_clicked();
 
 private:
     Ui::MainPage *ui;

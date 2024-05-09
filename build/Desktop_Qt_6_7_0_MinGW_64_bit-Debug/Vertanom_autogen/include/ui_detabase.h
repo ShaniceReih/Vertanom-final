@@ -36,7 +36,7 @@ public:
         label = new QLabel(detabase);
         label->setObjectName("label");
         label->setGeometry(QRect(12, 9, 391, 391));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/Profile (1).png")));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/sign up ui.png")));
         label->setScaledContents(true);
         fullname = new QLineEdit(detabase);
         fullname->setObjectName("fullname");

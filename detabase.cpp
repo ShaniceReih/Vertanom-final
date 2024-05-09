@@ -23,6 +23,7 @@ void detabase::on_pushButton_clicked()
 {
     // Add the new SQLite database connection
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+
     sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database..."; // Add debug message

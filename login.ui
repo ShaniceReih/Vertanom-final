@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>847</width>
-    <height>608</height>
+    <width>646</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,17 +17,22 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>821</width>
-      <height>541</height>
+      <x>20</x>
+      <y>20</y>
+      <width>601</width>
+      <height>401</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+  border-radius: 50px;
+}</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resource.qrc">:/images/images/Vertanom (1600 x 1080 px).png</pixmap>
+     <pixmap resource="resource.qrc">:/images/images/Vertanom (1600 x 1080 px) no bg 2.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -36,8 +41,8 @@
    <widget class="QLineEdit" name="enterUsername">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>270</y>
+      <x>90</x>
+      <y>200</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -68,8 +73,8 @@ QLineEdit:Hover{
    <widget class="QLineEdit" name="enterPassword">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>320</y>
+      <x>90</x>
+      <y>250</y>
       <width>211</width>
       <height>41</height>
      </rect>
@@ -103,8 +108,8 @@ QLineEdit:Hover{
    <widget class="QPushButton" name="pushButtonLogin">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>370</y>
+      <x>110</x>
+      <y>300</y>
       <width>83</width>
       <height>29</height>
      </rect>
@@ -127,8 +132,8 @@ QLineEdit:Hover{
    <widget class="QPushButton" name="pushButtonCancel">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>370</y>
+      <x>200</x>
+      <y>300</y>
       <width>83</width>
       <height>29</height>
      </rect>
@@ -151,8 +156,8 @@ QLineEdit:Hover{
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>410</y>
+      <x>150</x>
+      <y>340</y>
       <width>83</width>
       <height>29</height>
      </rect>
@@ -180,7 +185,7 @@ text-color: rgb(255, 255, 255);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>847</width>
+     <width>646</width>
      <height>25</height>
     </rect>
    </property>
