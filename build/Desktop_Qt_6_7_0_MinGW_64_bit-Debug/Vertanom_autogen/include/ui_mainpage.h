@@ -11,19 +11,18 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollBar>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -40,7 +39,7 @@ public:
     QWidget *centralwidget;
     QLabel *greetingLabel;
     QLabel *label_2;
-    QTabWidget *pH;
+    QTabWidget *tabWidget;
     QWidget *soilMoistureTab;
     QTableView *soilMoistureTable;
     QWidget *phTab;
@@ -52,47 +51,47 @@ public:
     QPushButton *reshData;
     QGroupBox *groupBox;
     QLabel *label_14;
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *label_23;
-    QLabel *currentTime;
-    QWidget *widget1;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_15;
     QLabel *soilMoistureLatest;
-    QWidget *widget2;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_10;
     QLabel *label_21;
     QLabel *humidityLatest;
-    QWidget *widget3;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_19;
     QLabel *temperatureLatest;
-    QWidget *widget4;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_17;
     QLabel *phLatest;
+    QFrame *line;
+    QLabel *label_23;
+    QLabel *currentTime;
     QGroupBox *groupBox_2;
-    QWidget *layoutWidget;
-    QVBoxLayout *verticalLayout_6;
-    QVBoxLayout *verticalLayout_5;
-    QLabel *label_5;
-    QVBoxLayout *verticalLayout_4;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label_6;
-    QLabel *soilMoistureAbnormalCounter;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *label_8;
-    QLabel *pHAbnormalCounter;
+    QFrame *line_2;
+    QPushButton *reshCounter;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_10;
     QLabel *temperatureAbnormalCounter;
+    QLabel *label_5;
+    QWidget *layoutWidget5;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_8;
+    QLabel *pHAbnormalCounter;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_12;
     QLabel *humidityAbnormalCounter;
-    QPushButton *reshCounter;
+    QWidget *layoutWidget7;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_6;
+    QLabel *soilMoistureAbnormalCounter;
     QGroupBox *groupBox_3;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget8;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -102,16 +101,25 @@ public:
     QLabel *label_4;
     QLineEdit *sensorValue;
     QPushButton *pushButton;
-    QScrollBar *verticalScrollBar;
+    QGroupBox *groupBox_4;
+    QLabel *label_16;
+    QLineEdit *editSensorValue;
+    QPushButton *updateButton;
+    QPushButton *deleteEntry;
+    QPushButton *logoutButton;
+    QWidget *layoutWidget9;
+    QHBoxLayout *horizontalLayout_11;
+    QPushButton *userButton;
+    QPushButton *aboutButton;
+    QLabel *label;
+    QPushButton *reshData_2;
     QMenuBar *menubar;
-    QMenu *menuFile;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainPage)
     {
         if (MainPage->objectName().isEmpty())
             MainPage->setObjectName("MainPage");
-        MainPage->resize(1202, 826);
+        MainPage->resize(1197, 737);
         QFont font;
         font.setPointSize(10);
         MainPage->setFont(font);
@@ -128,9 +136,9 @@ public:
         centralwidget->setObjectName("centralwidget");
         greetingLabel = new QLabel(centralwidget);
         greetingLabel->setObjectName("greetingLabel");
-        greetingLabel->setGeometry(QRect(20, 20, 371, 41));
+        greetingLabel->setGeometry(QRect(20, 20, 501, 41));
         QFont font1;
-        font1.setPointSize(20);
+        font1.setPointSize(28);
         font1.setBold(true);
         greetingLabel->setFont(font1);
         greetingLabel->setStyleSheet(QString::fromUtf8("QLabel{\n"
@@ -143,14 +151,14 @@ public:
         label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "}"));
-        pH = new QTabWidget(centralwidget);
-        pH->setObjectName("pH");
-        pH->setGeometry(QRect(500, 110, 641, 611));
+        tabWidget = new QTabWidget(centralwidget);
+        tabWidget->setObjectName("tabWidget");
+        tabWidget->setGeometry(QRect(500, 140, 641, 331));
         QFont font2;
         font2.setPointSize(11);
         font2.setBold(true);
-        pH->setFont(font2);
-        pH->setStyleSheet(QString::fromUtf8("QTabWidget{\n"
+        tabWidget->setFont(font2);
+        tabWidget->setStyleSheet(QString::fromUtf8("QTabWidget{\n"
 "background-color: #FFB6C1;\n"
 "font-weight: bold;\n"
 " border: 2px solid rgb(37, 39,48);\n"
@@ -167,7 +175,7 @@ public:
 "color: #472F5B;\n"
 "font-weight:bold;\n"
 "}"));
-        pH->addTab(soilMoistureTab, QString());
+        tabWidget->addTab(soilMoistureTab, QString());
         phTab = new QWidget();
         phTab->setObjectName("phTab");
         phTable = new QTableView(phTab);
@@ -178,7 +186,7 @@ public:
 "color: #472F5B;\n"
 "font-weight:bold;\n"
 "}"));
-        pH->addTab(phTab, QString());
+        tabWidget->addTab(phTab, QString());
         temperatureTab = new QWidget();
         temperatureTab->setObjectName("temperatureTab");
         temperatureTable = new QTableView(temperatureTab);
@@ -189,7 +197,7 @@ public:
 "color: #472F5B;\n"
 "font-weight:bold;\n"
 "}"));
-        pH->addTab(temperatureTab, QString());
+        tabWidget->addTab(temperatureTab, QString());
         humidityTab = new QWidget();
         humidityTab->setObjectName("humidityTab");
         humidityTable = new QTableView(humidityTab);
@@ -200,10 +208,10 @@ public:
 "color: #472F5B;\n"
 "font-weight:bold;\n"
 "}"));
-        pH->addTab(humidityTab, QString());
+        tabWidget->addTab(humidityTab, QString());
         reshData = new QPushButton(centralwidget);
         reshData->setObjectName("reshData");
-        reshData->setGeometry(QRect(630, 730, 391, 32));
+        reshData->setGeometry(QRect(500, 480, 641, 21));
         reshData->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "color: #FFB6C1;\n"
 "background-color: #472F5B;\n"
@@ -214,7 +222,7 @@ public:
 "}"));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(20, 550, 461, 211));
+        groupBox->setGeometry(QRect(500, 510, 641, 191));
         groupBox->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
 "background-color: #FFB6C1;\n"
 " border: 2px solid rgb(37, 39,48);\n"
@@ -223,55 +231,26 @@ public:
 "}"));
         label_14 = new QLabel(groupBox);
         label_14->setObjectName("label_14");
-        label_14->setGeometry(QRect(20, 10, 224, 31));
+        label_14->setGeometry(QRect(20, 10, 311, 31));
         QFont font3;
-        font3.setPointSize(14);
+        font3.setPointSize(18);
         font3.setBold(true);
         label_14->setFont(font3);
         label_14->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "}"));
-        widget = new QWidget(groupBox);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(20, 40, 114, 16));
-        horizontalLayout_6 = new QHBoxLayout(widget);
-        horizontalLayout_6->setObjectName("horizontalLayout_6");
-        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_23 = new QLabel(widget);
-        label_23->setObjectName("label_23");
-        QFont font4;
-        font4.setPointSize(6);
-        font4.setBold(true);
-        label_23->setFont(font4);
-        label_23->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_6->addWidget(label_23);
-
-        currentTime = new QLabel(widget);
-        currentTime->setObjectName("currentTime");
-        currentTime->setFont(font4);
-        currentTime->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_6->addWidget(currentTime);
-
-        widget1 = new QWidget(groupBox);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(22, 80, 421, 22));
-        horizontalLayout_7 = new QHBoxLayout(widget1);
+        layoutWidget = new QWidget(groupBox);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(22, 80, 421, 22));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_15 = new QLabel(widget1);
+        label_15 = new QLabel(layoutWidget);
         label_15->setObjectName("label_15");
-        QFont font5;
-        font5.setPointSize(9);
-        font5.setBold(true);
-        label_15->setFont(font5);
+        QFont font4;
+        font4.setPointSize(9);
+        font4.setBold(true);
+        label_15->setFont(font4);
         label_15->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -279,9 +258,9 @@ public:
 
         horizontalLayout_7->addWidget(label_15);
 
-        soilMoistureLatest = new QLabel(widget1);
+        soilMoistureLatest = new QLabel(layoutWidget);
         soilMoistureLatest->setObjectName("soilMoistureLatest");
-        soilMoistureLatest->setFont(font5);
+        soilMoistureLatest->setFont(font4);
         soilMoistureLatest->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -289,15 +268,15 @@ public:
 
         horizontalLayout_7->addWidget(soilMoistureLatest);
 
-        widget2 = new QWidget(groupBox);
-        widget2->setObjectName("widget2");
-        widget2->setGeometry(QRect(22, 160, 421, 22));
-        horizontalLayout_10 = new QHBoxLayout(widget2);
+        layoutWidget1 = new QWidget(groupBox);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(22, 160, 421, 26));
+        horizontalLayout_10 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        label_21 = new QLabel(widget2);
+        label_21 = new QLabel(layoutWidget1);
         label_21->setObjectName("label_21");
-        label_21->setFont(font5);
+        label_21->setFont(font4);
         label_21->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -305,9 +284,9 @@ public:
 
         horizontalLayout_10->addWidget(label_21);
 
-        humidityLatest = new QLabel(widget2);
+        humidityLatest = new QLabel(layoutWidget1);
         humidityLatest->setObjectName("humidityLatest");
-        humidityLatest->setFont(font5);
+        humidityLatest->setFont(font4);
         humidityLatest->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -315,15 +294,15 @@ public:
 
         horizontalLayout_10->addWidget(humidityLatest);
 
-        widget3 = new QWidget(groupBox);
-        widget3->setObjectName("widget3");
-        widget3->setGeometry(QRect(23, 131, 421, 22));
-        horizontalLayout_9 = new QHBoxLayout(widget3);
+        layoutWidget2 = new QWidget(groupBox);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(23, 131, 421, 22));
+        horizontalLayout_9 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_9->setObjectName("horizontalLayout_9");
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
-        label_19 = new QLabel(widget3);
+        label_19 = new QLabel(layoutWidget2);
         label_19->setObjectName("label_19");
-        label_19->setFont(font5);
+        label_19->setFont(font4);
         label_19->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -331,9 +310,9 @@ public:
 
         horizontalLayout_9->addWidget(label_19);
 
-        temperatureLatest = new QLabel(widget3);
+        temperatureLatest = new QLabel(layoutWidget2);
         temperatureLatest->setObjectName("temperatureLatest");
-        temperatureLatest->setFont(font5);
+        temperatureLatest->setFont(font4);
         temperatureLatest->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -341,15 +320,15 @@ public:
 
         horizontalLayout_9->addWidget(temperatureLatest);
 
-        widget4 = new QWidget(groupBox);
-        widget4->setObjectName("widget4");
-        widget4->setGeometry(QRect(23, 109, 421, 22));
-        horizontalLayout_8 = new QHBoxLayout(widget4);
+        layoutWidget3 = new QWidget(groupBox);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(23, 109, 421, 22));
+        horizontalLayout_8 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
-        label_17 = new QLabel(widget4);
+        label_17 = new QLabel(layoutWidget3);
         label_17->setObjectName("label_17");
-        label_17->setFont(font5);
+        label_17->setFont(font4);
         label_17->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -357,9 +336,9 @@ public:
 
         horizontalLayout_8->addWidget(label_17);
 
-        phLatest = new QLabel(widget4);
+        phLatest = new QLabel(layoutWidget3);
         phLatest->setObjectName("phLatest");
-        phLatest->setFont(font5);
+        phLatest->setFont(font4);
         phLatest->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "font-weight: bold;\n"
@@ -367,137 +346,50 @@ public:
 
         horizontalLayout_8->addWidget(phLatest);
 
+        line = new QFrame(groupBox);
+        line->setObjectName("line");
+        line->setGeometry(QRect(0, 60, 631, 16));
+        line->setStyleSheet(QString::fromUtf8("color: #472F5B;"));
+        line->setFrameShape(QFrame::Shape::HLine);
+        line->setFrameShadow(QFrame::Shadow::Sunken);
+        label_23 = new QLabel(groupBox);
+        label_23->setObjectName("label_23");
+        label_23->setGeometry(QRect(22, 41, 91, 17));
+        QFont font5;
+        font5.setPointSize(8);
+        font5.setBold(true);
+        font5.setItalic(true);
+        label_23->setFont(font5);
+        label_23->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        currentTime = new QLabel(groupBox);
+        currentTime->setObjectName("currentTime");
+        currentTime->setGeometry(QRect(100, 40, 211, 17));
+        currentTime->setFont(font5);
+        currentTime->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setGeometry(QRect(20, 320, 461, 221));
+        groupBox_2->setGeometry(QRect(20, 490, 461, 211));
         groupBox_2->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
 "background-color: #FFB6C1;\n"
 " border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 20px;\n"
 "   border-color: #800080;\n"
 "}"));
-        layoutWidget = new QWidget(groupBox_2);
-        layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(10, 10, 432, 193));
-        verticalLayout_6 = new QVBoxLayout(layoutWidget);
-        verticalLayout_6->setObjectName("verticalLayout_6");
-        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName("verticalLayout_5");
-        label_5 = new QLabel(layoutWidget);
-        label_5->setObjectName("label_5");
-        QFont font6;
-        font6.setPointSize(18);
-        font6.setBold(true);
-        label_5->setFont(font6);
-        label_5->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"}"));
-
-        verticalLayout_5->addWidget(label_5);
-
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName("verticalLayout_4");
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-        label_6 = new QLabel(layoutWidget);
-        label_6->setObjectName("label_6");
-        label_6->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_2->addWidget(label_6);
-
-        soilMoistureAbnormalCounter = new QLabel(layoutWidget);
-        soilMoistureAbnormalCounter->setObjectName("soilMoistureAbnormalCounter");
-        soilMoistureAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_2->addWidget(soilMoistureAbnormalCounter);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_2);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        label_8 = new QLabel(layoutWidget);
-        label_8->setObjectName("label_8");
-        label_8->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_3->addWidget(label_8);
-
-        pHAbnormalCounter = new QLabel(layoutWidget);
-        pHAbnormalCounter->setObjectName("pHAbnormalCounter");
-        pHAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_3->addWidget(pHAbnormalCounter);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_3);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName("horizontalLayout_4");
-        label_10 = new QLabel(layoutWidget);
-        label_10->setObjectName("label_10");
-        label_10->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_4->addWidget(label_10);
-
-        temperatureAbnormalCounter = new QLabel(layoutWidget);
-        temperatureAbnormalCounter->setObjectName("temperatureAbnormalCounter");
-        temperatureAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_4->addWidget(temperatureAbnormalCounter);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_4);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        label_12 = new QLabel(layoutWidget);
-        label_12->setObjectName("label_12");
-        label_12->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_5->addWidget(label_12);
-
-        humidityAbnormalCounter = new QLabel(layoutWidget);
-        humidityAbnormalCounter->setObjectName("humidityAbnormalCounter");
-        humidityAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"color: #472F5B;\n"
-"font-weight: bold;\n"
-"}"));
-
-        horizontalLayout_5->addWidget(humidityAbnormalCounter);
-
-
-        verticalLayout_4->addLayout(horizontalLayout_5);
-
-
-        verticalLayout_5->addLayout(verticalLayout_4);
-
-
-        verticalLayout_6->addLayout(verticalLayout_5);
-
-        reshCounter = new QPushButton(layoutWidget);
+        line_2 = new QFrame(groupBox_2);
+        line_2->setObjectName("line_2");
+        line_2->setGeometry(QRect(0, 50, 461, 16));
+        line_2->setStyleSheet(QString::fromUtf8("color: #472F5B;"));
+        line_2->setFrameShape(QFrame::Shape::HLine);
+        line_2->setFrameShadow(QFrame::Shadow::Sunken);
+        reshCounter = new QPushButton(groupBox_2);
         reshCounter->setObjectName("reshCounter");
+        reshCounter->setGeometry(QRect(10, 180, 441, 24));
         reshCounter->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "color: #FFB6C1;\n"
 "background-color: #472F5B;\n"
@@ -506,38 +398,148 @@ public:
 "   border-radius: 10px;\n"
 "   border-color: #800080;\n"
 "}"));
+        layoutWidget4 = new QWidget(groupBox_2);
+        layoutWidget4->setObjectName("layoutWidget4");
+        layoutWidget4->setGeometry(QRect(10, 120, 431, 22));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget4);
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label_10 = new QLabel(layoutWidget4);
+        label_10->setObjectName("label_10");
+        label_10->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        label_10->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
-        verticalLayout_6->addWidget(reshCounter);
+        horizontalLayout_4->addWidget(label_10);
+
+        temperatureAbnormalCounter = new QLabel(layoutWidget4);
+        temperatureAbnormalCounter->setObjectName("temperatureAbnormalCounter");
+        temperatureAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        temperatureAbnormalCounter->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_4->addWidget(temperatureAbnormalCounter);
+
+        label_5 = new QLabel(groupBox_2);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(12, 12, 428, 40));
+        label_5->setFont(font3);
+        label_5->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"}"));
+        label_5->setAlignment(Qt::AlignCenter);
+        layoutWidget5 = new QWidget(groupBox_2);
+        layoutWidget5->setObjectName("layoutWidget5");
+        layoutWidget5->setGeometry(QRect(10, 90, 431, 22));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget5);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        label_8 = new QLabel(layoutWidget5);
+        label_8->setObjectName("label_8");
+        label_8->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        label_8->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_3->addWidget(label_8);
+
+        pHAbnormalCounter = new QLabel(layoutWidget5);
+        pHAbnormalCounter->setObjectName("pHAbnormalCounter");
+        pHAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        pHAbnormalCounter->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_3->addWidget(pHAbnormalCounter);
+
+        layoutWidget6 = new QWidget(groupBox_2);
+        layoutWidget6->setObjectName("layoutWidget6");
+        layoutWidget6->setGeometry(QRect(10, 150, 431, 22));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget6);
+        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        label_12 = new QLabel(layoutWidget6);
+        label_12->setObjectName("label_12");
+        label_12->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        label_12->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_5->addWidget(label_12);
+
+        humidityAbnormalCounter = new QLabel(layoutWidget6);
+        humidityAbnormalCounter->setObjectName("humidityAbnormalCounter");
+        humidityAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        humidityAbnormalCounter->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_5->addWidget(humidityAbnormalCounter);
+
+        layoutWidget7 = new QWidget(groupBox_2);
+        layoutWidget7->setObjectName("layoutWidget7");
+        layoutWidget7->setGeometry(QRect(10, 60, 431, 22));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget7);
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_6 = new QLabel(layoutWidget7);
+        label_6->setObjectName("label_6");
+        label_6->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        label_6->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_2->addWidget(label_6);
+
+        soilMoistureAbnormalCounter = new QLabel(layoutWidget7);
+        soilMoistureAbnormalCounter->setObjectName("soilMoistureAbnormalCounter");
+        soilMoistureAbnormalCounter->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"font-weight: bold;\n"
+"}"));
+        soilMoistureAbnormalCounter->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_2->addWidget(soilMoistureAbnormalCounter);
 
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName("groupBox_3");
-        groupBox_3->setGeometry(QRect(20, 110, 461, 201));
+        groupBox_3->setGeometry(QRect(20, 140, 461, 171));
         groupBox_3->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
 "background-color: #FFB6C1;\n"
 " border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 20px;\n"
 "   border-color: #800080;\n"
 "}"));
-        layoutWidget1 = new QWidget(groupBox_3);
-        layoutWidget1->setObjectName("layoutWidget1");
-        layoutWidget1->setGeometry(QRect(10, 10, 441, 181));
-        verticalLayout_3 = new QVBoxLayout(layoutWidget1);
+        layoutWidget8 = new QWidget(groupBox_3);
+        layoutWidget8->setObjectName("layoutWidget8");
+        layoutWidget8->setGeometry(QRect(10, 10, 441, 151));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget8);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
-        label_3 = new QLabel(layoutWidget1);
+        label_3 = new QLabel(layoutWidget8);
         label_3->setObjectName("label_3");
-        label_3->setFont(font6);
+        label_3->setFont(font3);
         label_3->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "}"));
+        label_3->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_3);
 
-        comboBox = new QComboBox(layoutWidget1);
+        comboBox = new QComboBox(layoutWidget8);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
@@ -558,7 +560,7 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        label_4 = new QLabel(layoutWidget1);
+        label_4 = new QLabel(layoutWidget8);
         label_4->setObjectName("label_4");
         label_4->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
@@ -567,7 +569,7 @@ public:
 
         horizontalLayout->addWidget(label_4);
 
-        sensorValue = new QLineEdit(layoutWidget1);
+        sensorValue = new QLineEdit(layoutWidget8);
         sensorValue->setObjectName("sensorValue");
         sensorValue->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "background-color: #FFB6C1;\n"
@@ -582,7 +584,7 @@ public:
 
         verticalLayout_3->addLayout(verticalLayout_2);
 
-        pushButton = new QPushButton(layoutWidget1);
+        pushButton = new QPushButton(layoutWidget8);
         pushButton->setObjectName("pushButton");
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "color: #FFB6C1;\n"
@@ -595,34 +597,120 @@ public:
 
         verticalLayout_3->addWidget(pushButton);
 
-        verticalScrollBar = new QScrollBar(centralwidget);
-        verticalScrollBar->setObjectName("verticalScrollBar");
-        verticalScrollBar->setGeometry(QRect(1179, 20, 21, 741));
-        verticalScrollBar->setStyleSheet(QString::fromUtf8("QScrollBar::vertical{\n"
+        groupBox_4 = new QGroupBox(centralwidget);
+        groupBox_4->setObjectName("groupBox_4");
+        groupBox_4->setGeometry(QRect(20, 320, 461, 161));
+        groupBox_4->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
+"background-color: #FFB6C1;\n"
+" border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 20px;\n"
+"   border-color: #800080;\n"
+"}"));
+        label_16 = new QLabel(groupBox_4);
+        label_16->setObjectName("label_16");
+        label_16->setGeometry(QRect(20, 20, 224, 31));
+        QFont font6;
+        font6.setPointSize(14);
+        font6.setBold(true);
+        label_16->setFont(font6);
+        label_16->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"color: #472F5B;\n"
+"}"));
+        editSensorValue = new QLineEdit(groupBox_4);
+        editSensorValue->setObjectName("editSensorValue");
+        editSensorValue->setGeometry(QRect(20, 60, 421, 28));
+        updateButton = new QPushButton(groupBox_4);
+        updateButton->setObjectName("updateButton");
+        updateButton->setGeometry(QRect(120, 100, 101, 21));
+        updateButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: #FFB6C1;\n"
+"background-color: #472F5B;\n"
+"font-weight: bold;\n"
+" border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 10px;\n"
+"   border-color: #800080;\n"
+"}"));
+        deleteEntry = new QPushButton(groupBox_4);
+        deleteEntry->setObjectName("deleteEntry");
+        deleteEntry->setGeometry(QRect(230, 100, 101, 21));
+        deleteEntry->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: #FFB6C1;\n"
+"background-color: #472F5B;\n"
+"font-weight: bold;\n"
+" border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 10px;\n"
+"   border-color: #800080;\n"
+"}"));
+        logoutButton = new QPushButton(centralwidget);
+        logoutButton->setObjectName("logoutButton");
+        logoutButton->setGeometry(QRect(1070, 60, 101, 31));
+        logoutButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: #FFB6C1;\n"
+"background-color: #472F5B;\n"
+"font-weight: bold;\n"
+" border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 10px;\n"
+"   border-color: #800080;\n"
+"}"));
+        layoutWidget9 = new QWidget(centralwidget);
+        layoutWidget9->setObjectName("layoutWidget9");
+        layoutWidget9->setGeometry(QRect(950, 50, 105, 46));
+        horizontalLayout_11 = new QHBoxLayout(layoutWidget9);
+        horizontalLayout_11->setObjectName("horizontalLayout_11");
+        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
+        userButton = new QPushButton(layoutWidget9);
+        userButton->setObjectName("userButton");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/images/accountbut.png"), QSize(), QIcon::Normal, QIcon::Off);
+        userButton->setIcon(icon);
+        userButton->setIconSize(QSize(35, 35));
+        userButton->setFlat(true);
+
+        horizontalLayout_11->addWidget(userButton);
+
+        aboutButton = new QPushButton(layoutWidget9);
+        aboutButton->setObjectName("aboutButton");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/images/images/about.png"), QSize(), QIcon::Normal, QIcon::Off);
+        aboutButton->setIcon(icon1);
+        aboutButton->setIconSize(QSize(35, 35));
+        aboutButton->setFlat(true);
+
+        horizontalLayout_11->addWidget(aboutButton);
+
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(560, 0, 91, 91));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/logo.png")));
+        label->setScaledContents(true);
+        reshData_2 = new QPushButton(centralwidget);
+        reshData_2->setObjectName("reshData_2");
+        reshData_2->setGeometry(QRect(0, 100, 1201, 16));
+        reshData_2->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"\n"
 "background-color: #472F5B;\n"
 "}"));
-        verticalScrollBar->setOrientation(Qt::Vertical);
         MainPage->setCentralWidget(centralwidget);
+        reshData_2->raise();
+        greetingLabel->raise();
+        label_2->raise();
+        tabWidget->raise();
+        reshData->raise();
+        groupBox->raise();
+        groupBox_2->raise();
+        groupBox_3->raise();
+        groupBox_4->raise();
+        logoutButton->raise();
+        layoutWidget->raise();
+        label->raise();
         menubar = new QMenuBar(MainPage);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1202, 25));
-        menuFile = new QMenu(menubar);
-        menuFile->setObjectName("menuFile");
+        menubar->setGeometry(QRect(0, 0, 1197, 25));
         MainPage->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainPage);
-        statusbar->setObjectName("statusbar");
-        MainPage->setStatusBar(statusbar);
-
-        menubar->addAction(menuFile->menuAction());
-        menuFile->addAction(actionUser_profile);
-        menuFile->addAction(actionAbout);
-        menuFile->addSeparator();
-        menuFile->addSeparator();
-        menuFile->addAction(actionExit);
 
         retranslateUi(MainPage);
 
-        pH->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainPage);
@@ -636,15 +724,13 @@ public:
         actionExit->setText(QCoreApplication::translate("MainPage", "Exit", nullptr));
         greetingLabel->setText(QCoreApplication::translate("MainPage", "UserName's Vertanom", nullptr));
         label_2->setText(QCoreApplication::translate("MainPage", "Buru-un Iligan City, Lanao del Norte", nullptr));
-        pH->setTabText(pH->indexOf(soilMoistureTab), QCoreApplication::translate("MainPage", "Soil Moisture", nullptr));
-        pH->setTabText(pH->indexOf(phTab), QCoreApplication::translate("MainPage", "pH", nullptr));
-        pH->setTabText(pH->indexOf(temperatureTab), QCoreApplication::translate("MainPage", "Temperature", nullptr));
-        pH->setTabText(pH->indexOf(humidityTab), QCoreApplication::translate("MainPage", "Humidity", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(soilMoistureTab), QCoreApplication::translate("MainPage", "Soil Moisture", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(phTab), QCoreApplication::translate("MainPage", "pH", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(temperatureTab), QCoreApplication::translate("MainPage", "Temperature", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(humidityTab), QCoreApplication::translate("MainPage", "Humidity", nullptr));
         reshData->setText(QCoreApplication::translate("MainPage", "Refresh Data", nullptr));
         groupBox->setTitle(QString());
         label_14->setText(QCoreApplication::translate("MainPage", "Lastest Climatic Data", nullptr));
-        label_23->setText(QCoreApplication::translate("MainPage", "Updated as of ", nullptr));
-        currentTime->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         label_15->setText(QCoreApplication::translate("MainPage", "Soil Moisture:", nullptr));
         soilMoistureLatest->setText(QCoreApplication::translate("MainPage", " <value>", nullptr));
         label_21->setText(QCoreApplication::translate("MainPage", "Humidity:", nullptr));
@@ -653,17 +739,19 @@ public:
         temperatureLatest->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         label_17->setText(QCoreApplication::translate("MainPage", "pH:", nullptr));
         phLatest->setText(QCoreApplication::translate("MainPage", " <value>", nullptr));
+        label_23->setText(QCoreApplication::translate("MainPage", "Updated as of ", nullptr));
+        currentTime->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         groupBox_2->setTitle(QString());
-        label_5->setText(QCoreApplication::translate("MainPage", "Abnormal Climatic Parameters", nullptr));
-        label_6->setText(QCoreApplication::translate("MainPage", "Soil Moisture:", nullptr));
-        soilMoistureAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
-        label_8->setText(QCoreApplication::translate("MainPage", "pH", nullptr));
-        pHAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        reshCounter->setText(QCoreApplication::translate("MainPage", "Refresh Counter", nullptr));
         label_10->setText(QCoreApplication::translate("MainPage", "Temperature:", nullptr));
         temperatureAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        label_5->setText(QCoreApplication::translate("MainPage", "Abnormal Climatic Parameters", nullptr));
+        label_8->setText(QCoreApplication::translate("MainPage", "pH", nullptr));
+        pHAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         label_12->setText(QCoreApplication::translate("MainPage", "Humidity", nullptr));
         humidityAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
-        reshCounter->setText(QCoreApplication::translate("MainPage", "Refresh Counter", nullptr));
+        label_6->setText(QCoreApplication::translate("MainPage", "Soil Moisture:", nullptr));
+        soilMoistureAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         groupBox_3->setTitle(QString());
         label_3->setText(QCoreApplication::translate("MainPage", "Input Climatic Data Parameter", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("MainPage", "Soil Moisture", nullptr));
@@ -673,7 +761,15 @@ public:
 
         label_4->setText(QCoreApplication::translate("MainPage", "Value:", nullptr));
         pushButton->setText(QCoreApplication::translate("MainPage", "Insert Data", nullptr));
-        menuFile->setTitle(QCoreApplication::translate("MainPage", "File", nullptr));
+        groupBox_4->setTitle(QString());
+        label_16->setText(QCoreApplication::translate("MainPage", "Sensor Value", nullptr));
+        updateButton->setText(QCoreApplication::translate("MainPage", "Update", nullptr));
+        deleteEntry->setText(QCoreApplication::translate("MainPage", "Delete", nullptr));
+        logoutButton->setText(QCoreApplication::translate("MainPage", "Log out", nullptr));
+        userButton->setText(QString());
+        aboutButton->setText(QString());
+        label->setText(QString());
+        reshData_2->setText(QString());
     } // retranslateUi
 
 };

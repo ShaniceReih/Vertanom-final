@@ -4,8 +4,10 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtCore/QHash \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QList \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/QModelIndex \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QMutex \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QObject \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/QSet \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
@@ -323,9 +325,11 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QTableView \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemview.h \
@@ -342,6 +346,7 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qslider.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyle.h \
@@ -677,4 +682,6 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+  C:/Vertanom/Vertanom/aboutpage.h \
+  C:/Vertanom/Vertanom/userprofile.h

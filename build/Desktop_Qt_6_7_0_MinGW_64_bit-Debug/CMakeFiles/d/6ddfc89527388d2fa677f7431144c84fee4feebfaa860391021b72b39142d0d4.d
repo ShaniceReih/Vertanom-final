@@ -3,8 +3,10 @@ Vertanom_autogen/timestamp: \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QHash \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QList \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QMap \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/QModelIndex \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QMutex \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QObject \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/QSet \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QVariant \
@@ -322,9 +324,11 @@ Vertanom_autogen/timestamp: \
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.7.0/mingw_64/include/QtSql/qtsqlversion.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollArea \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QTableView \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -342,6 +346,7 @@ Vertanom_autogen/timestamp: \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qrubberband.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qslider.h \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qstyle.h \
@@ -872,6 +877,9 @@ Vertanom_autogen/timestamp: \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
   C:/Vertanom/Vertanom/CMakeLists.txt \
+  C:/Vertanom/Vertanom/aboutpage.cpp \
+  C:/Vertanom/Vertanom/aboutpage.h \
+  C:/Vertanom/Vertanom/aboutpage.ui \
   .qtc/package-manager/auto-setup.cmake \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
@@ -887,4 +895,7 @@ Vertanom_autogen/timestamp: \
   C:/Vertanom/Vertanom/mainpage.cpp \
   C:/Vertanom/Vertanom/mainpage.h \
   C:/Vertanom/Vertanom/mainpage.ui \
-  C:/Vertanom/Vertanom/resource.qrc
+  C:/Vertanom/Vertanom/resource.qrc \
+  C:/Vertanom/Vertanom/userprofile.cpp \
+  C:/Vertanom/Vertanom/userprofile.h \
+  C:/Vertanom/Vertanom/userprofile.ui

@@ -5,7 +5,6 @@
 #include <QMessageBox>
 #include "mainpage.h"
 #include "detabase.h"
-
 #include <QtSql/QtSql>
 
 
@@ -31,6 +30,8 @@ private slots:
     void on_pushButtonLogin_clicked();
 
     void on_pushButton_clicked();
+
+    void onSignUpSuccess();
 
 private:
     Ui::Login *ui;

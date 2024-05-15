@@ -7,16 +7,16 @@
 	"INCLUDE_DIR" : "C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/include",
 	"INPUTS" : 
 	[
-		"C:/Vertanom/Vertanom/images/Profile (1).png",
-		"C:/Vertanom/Vertanom/images/crying.png",
-		"C:/Vertanom/Vertanom/images/Profile.png",
+		"C:/Vertanom/Vertanom/images/account.png",
 		"C:/Vertanom/Vertanom/images/sign up ui.png",
+		"C:/Vertanom/Vertanom/images/accountbut.png",
+		"C:/Vertanom/Vertanom/images/loginpage.png",
 		"C:/Vertanom/Vertanom/images/Vertanom (1600 x 1080 px) no bg 2.png",
-		"C:/Vertanom/Vertanom/images/Vertanom (1600 x 1080 px) no bg.png",
-		"C:/Vertanom/Vertanom/images/frfr.png",
 		"C:/Vertanom/Vertanom/images/logo.png",
-		"C:/Vertanom/Vertanom/images/login background.png",
-		"C:/Vertanom/Vertanom/images/Vertanom (1600 x 1080 px).png"
+		"C:/Vertanom/Vertanom/images/aboutpagee.png",
+		"C:/Vertanom/Vertanom/images/about.png",
+		"C:/Vertanom/Vertanom/images/profilepage (2).png",
+		"C:/Vertanom/Vertanom/images/signuppage.png"
 	],
 	"LOCK_FILE" : "C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/Vertanom_autogen.dir/AutoRcc_resource_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,

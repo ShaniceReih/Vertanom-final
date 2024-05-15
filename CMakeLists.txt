@@ -36,6 +36,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         detabase.h detabase.cpp detabase.ui
         login.h login.cpp login.ui
         resource.qrc
+        userprofile.h userprofile.cpp userprofile.ui
+        aboutpage.h aboutpage.cpp aboutpage.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Vertanom APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

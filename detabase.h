@@ -12,6 +12,9 @@ class detabase : public QWidget
 {
     Q_OBJECT
 
+signals:
+    void signUpSuccess();
+
 public:
     explicit detabase(QWidget *parent = nullptr);
     ~detabase();

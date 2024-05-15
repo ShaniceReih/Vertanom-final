@@ -1,6 +1,5 @@
 #include "login.h"
 #include "./ui_login.h"
-
 #include <QSqlDatabase>
 #include "login.h"
 #include "ui_login.h"
@@ -9,7 +8,6 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QApplication>
-
 #include "mainpage.h"
 #include "detabase.h"
 
@@ -29,6 +27,7 @@ Login::Login(QWidget *parent)
         qDebug() << "Error:" << sqlitedb.lastError().text(); // Print the error message
     }
 }
+
 Login::~Login()
 {
     delete ui;
@@ -45,7 +44,6 @@ void Login::testDatabaseConnection()
         qDebug() << "Error executing test query:" << testQuery.lastError().text();
     }
 }
-
 
 void Login::on_pushButtonLogin_clicked()
 {
@@ -77,17 +75,16 @@ void Login::on_pushButtonLogin_clicked()
         }
         else if (UserFindCount == 0) // User name and password are not correct
         {
-            QMessageBox::information(this, "User", "Please Check Your UserName and Password");
+            QMessageBox::warning(this, "User", "Please Check Your UserName and Password");
         }
     }
     else
     {
         // Handle query execution errors
         qDebug() << "Error executing query:" << QueryGetUser.lastError().text();
-        QMessageBox::warning(this, "Error", "Query execution failed: " + QueryGetUser.lastError().text());
+        QMessageBox::critical(this, "Error", "Query execution failed: " + QueryGetUser.lastError().text());
     }
 }
-
 
 void Login::on_pushButtonCancel_clicked()
 {
@@ -99,22 +96,30 @@ void Login::on_pushButtonCancel_clicked()
     }
 }
 
-
-
 void Login::on_pushButton_clicked()
 {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::question(this, "Shanice Reih", "Create a new account?", QMessageBox::Yes | QMessageBox::No);
-        if (reply == QMessageBox::Yes)
-        {
-            // Create a new account
-
-            detabase *signup = new detabase();
-            signup->show();
-        }
-        else // User chose not to create a new account
-        {
-            QApplication::quit();
-        }
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Shanice Reih", "Create a new account?", QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes)
+    {
+        // Create a new account
+        detabase *signup = new detabase();
+        connect(signup, &detabase::signUpSuccess, this, &Login::onSignUpSuccess);
+        signup->show();
+    }
+    else // User chose not to create a new account
+    {
+        QApplication::quit();
+    }
 }
 
+void Login::onSignUpSuccess()
+{
+    // Assuming signup is a detabase instance
+    qDebug() << "Sign-up successful, closing the sign-up screen.";
+    // Close the sign-up screen
+    QWidget *signup = qobject_cast<QWidget *>(sender());
+    if (signup) {
+        signup->close();
+    }
+}

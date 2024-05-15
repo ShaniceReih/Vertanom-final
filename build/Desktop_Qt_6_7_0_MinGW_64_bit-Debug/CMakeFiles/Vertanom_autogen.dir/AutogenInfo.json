@@ -334,6 +334,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Vertanom/Vertanom/aboutpage.h",
+			"MU",
+			"EWIEGA46WW/moc_aboutpage.cpp",
+			null
+		],
+		[
 			"C:/Vertanom/Vertanom/detabase.h",
 			"MU",
 			"EWIEGA46WW/moc_detabase.cpp",
@@ -349,6 +355,12 @@
 			"C:/Vertanom/Vertanom/mainpage.h",
 			"MU",
 			"EWIEGA46WW/moc_mainpage.cpp",
+			null
+		],
+		[
+			"C:/Vertanom/Vertanom/userprofile.h",
+			"MU",
+			"EWIEGA46WW/moc_userprofile.cpp",
 			null
 		]
 	],
@@ -425,10 +437,12 @@
 	"SETTINGS_FILE" : "C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/Vertanom_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/Vertanom/Vertanom/aboutpage.cpp", "MU", null ],
 		[ "C:/Vertanom/Vertanom/detabase.cpp", "MU", null ],
 		[ "C:/Vertanom/Vertanom/login.cpp", "MU", null ],
 		[ "C:/Vertanom/Vertanom/main.cpp", "MU", null ],
-		[ "C:/Vertanom/Vertanom/mainpage.cpp", "MU", null ]
+		[ "C:/Vertanom/Vertanom/mainpage.cpp", "MU", null ],
+		[ "C:/Vertanom/Vertanom/userprofile.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

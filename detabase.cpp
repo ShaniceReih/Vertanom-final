@@ -72,6 +72,8 @@ void detabase::on_pushButton_clicked()
         QMessageBox::critical(this, "Database error", "Error inserting data: " + query.lastError().text());
         qDebug() << "Error executing insert query:" << query.lastError().text(); // Add debug message
     } else {
+        // Inside the if statement where data insertion is successful
+        emit signUpSuccess();
         qDebug() << "Data inserted successfully."; // Add debug message
 
         QMessageBox::information(this, "Database added", "Data added to database");
