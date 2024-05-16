@@ -14,9 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,14 +29,12 @@ public:
     QPushButton *pushButtonLogin;
     QPushButton *pushButtonCancel;
     QPushButton *pushButton;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Login)
     {
         if (Login->objectName().isEmpty())
             Login->setObjectName("Login");
-        Login->resize(735, 516);
+        Login->resize(735, 486);
         centralwidget = new QWidget(Login);
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
@@ -119,13 +115,6 @@ public:
 "}"));
         pushButton->setFlat(true);
         Login->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(Login);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 735, 25));
-        Login->setMenuBar(menubar);
-        statusbar = new QStatusBar(Login);
-        statusbar->setObjectName("statusbar");
-        Login->setStatusBar(statusbar);
 
         retranslateUi(Login);
 

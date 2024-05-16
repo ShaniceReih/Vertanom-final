@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlDatabase>
 
+
 namespace Ui {
 class detabase;
 }
@@ -12,8 +13,6 @@ class detabase : public QWidget
 {
     Q_OBJECT
 
-signals:
-    void signUpSuccess();
 
 public:
     explicit detabase(QWidget *parent = nullptr);

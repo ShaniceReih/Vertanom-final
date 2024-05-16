@@ -18,7 +18,8 @@ MainPage::MainPage(QWidget *parent)
     , ui(new Ui::MainPage)
 {
     ui->setupUi(this);
-    fetchUserFirstName(); // Call fetchUserFirstName() in the constructor
+    fetchUserName();
+    fetchUserAddress();
     on_reshCounter_clicked();
     fetchLatestSensorValues();
 
@@ -138,7 +139,7 @@ void MainPage::loadDataIntoTables() {
         }
     }
 
-    QMessageBox::information(this, "Success", "Data has been loaded into all tables.");
+    //QMessageBox::information(this, "Success", "Data has been loaded into all tables.");
 
     sqlitedb.close();
 }
@@ -180,11 +181,6 @@ void MainPage::onComboBoxIndexChanged(int index) {
 
 }
 
-
-void MainPage::setGreetingLabelText(const QString& firstName) {
-    QString greetingText = firstName + "'s Vertanom";
-    ui->greetingLabel->setText(greetingText);
-}
 
 void MainPage::fetchLatestSensorValues() {
     // Establish connection to the SQLite database
@@ -233,47 +229,6 @@ void MainPage::fetchLatestSensorValues() {
     sqlitedb.close();
 }
 
-
-
-
-void MainPage::fetchUserFirstName() {
-    // Establish connection to the SQLite database
-    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
-
-    qDebug() << "Attempting to open database for fetching user's first name..."; // Add debug message
-
-    if (!sqlitedb.open()) {
-        QMessageBox::critical(this, "Database error", "Failed to open database: " + sqlitedb.lastError().text());
-        qDebug() << "Failed to open database for fetching user's first name:" << sqlitedb.lastError().text(); // Add debug message
-        return;
-    }
-
-    qDebug() << "Database opened successfully for fetching user's first name."; // Add debug message
-
-    // Execute query to fetch user's first name from the database
-    QSqlQuery query(sqlitedb);
-    if (!query.exec("SELECT username FROM users"
-                    "")) {
-        QMessageBox::critical(this, "Database error", "Failed to fetch user's first name from database: " + query.lastError().text());
-        qDebug() << "Failed to fetch user's first name from database:" << query.lastError().text(); // Add debug message
-
-        sqlitedb.close();
-        return;
-    }
-
-    // Assuming the query returns only one row
-    if (query.next()) {
-        QString firstName = query.value(0).toString();
-        qDebug() << "Fetched user's first name:" << firstName; // Add debug message
-        setGreetingLabelText(firstName);
-    } else {
-        QMessageBox::warning(this, "No Data", "No user data found in the database.");
-    }
-
-    sqlitedb.close();
-
-}
 
 
 
@@ -832,3 +787,68 @@ void MainPage::on_logoutButton_clicked()
     }
 }
 
+void MainPage::fetchUserName() {
+
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+
+    qDebug() << "Attempting to open database for refreshing data..."; // Add debug message
+
+    if (!sqlitedb.open()) {
+        QMessageBox::critical(this, "Database error", "Failed to open database: " + sqlitedb.lastError().text());
+        qDebug() << "Failed to open database for refreshing data:" << sqlitedb.lastError().text(); // Add debug message
+        return;
+    }
+
+    qDebug() << "Database opened successfully for refreshing data."; // Add debug message
+
+    QSqlQuery query(sqlitedb);
+    query.prepare("SELECT firstname FROM users WHERE username = ?");
+    query.addBindValue(currentUserUsername); // assuming currentUserName is declared and initialized elsewhere
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Database error", "Failed to fetch user details from database: " + query.lastError().text());
+        qDebug() << "Failed to fetch user details from database:" << query.lastError().text();
+        return;
+    }
+
+    // Check if there is a user record
+    if (query.next()) {
+        QString username = query.value(0).toString();
+        QString FIRSTNAME = username + "'s Vertanom"; // Note the position of the '
+        ui->FIRSTNAME->setText(FIRSTNAME);
+    } else {
+        QMessageBox::warning(this, "No Data", "No user data found in the database for the current user.");
+    }
+}
+void MainPage::fetchUserAddress() {
+
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+
+    qDebug() << "Attempting to open database for refreshing data..."; // Add debug message
+
+    if (!sqlitedb.open()) {
+        QMessageBox::critical(this, "Database error", "Failed to open database: " + sqlitedb.lastError().text());
+        qDebug() << "Failed to open database for refreshing data:" << sqlitedb.lastError().text(); // Add debug message
+        return;
+    }
+
+    qDebug() << "Database opened successfully for refreshing data."; // Add debug message
+
+    QSqlQuery query(sqlitedb);
+    query.prepare("SELECT address FROM users WHERE username = ?");
+    query.addBindValue(currentUserUsername); // assuming currentUserAddress is declared and initialized elsewhere
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Database error", "Failed to fetch user details from database: " + query.lastError().text());
+        qDebug() << "Failed to fetch user details from database:" << query.lastError().text();
+        return;
+    }
+
+    // Check if there is a user record
+    if (query.next()) {
+        QString address = query.value(0).toString();
+        ui->addRess->setText(address); // corrected the typo here
+    } else {
+        QMessageBox::warning(this, "No Data", "No user data found in the database for the current user.");
+    }
+}

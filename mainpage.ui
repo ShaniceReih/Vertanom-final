@@ -24,13 +24,13 @@ background-color: #AA91A9;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="greetingLabel">
+   <widget class="QLabel" name="FIRSTNAME">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>501</width>
-      <height>41</height>
+      <x>21</x>
+      <y>11</y>
+      <width>521</width>
+      <height>63</height>
      </rect>
     </property>
     <property name="font">
@@ -45,10 +45,10 @@ color: #472F5B;
 }</string>
     </property>
     <property name="text">
-     <string>UserName's Vertanom</string>
+     <string>UserName's</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="addRess">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -1140,8 +1140,8 @@ background-color: #472F5B;
     </property>
    </widget>
    <zorder>reshData_2</zorder>
-   <zorder>greetingLabel</zorder>
-   <zorder>label_2</zorder>
+   <zorder>FIRSTNAME</zorder>
+   <zorder>addRess</zorder>
    <zorder>tabWidget</zorder>
    <zorder>reshData</zorder>
    <zorder>groupBox</zorder>

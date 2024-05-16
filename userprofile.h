@@ -19,8 +19,8 @@ public:
 private:
     Ui::UserProfile *ui;
     QSqlDatabase sqlitedb; // Declare db as a member variable
-
     void fetchUserInfo(); // Declare fetchUserInfo with QSqlDatabase parameter
+
 };
 extern QString currentUserUsername;
 #endif // USERPROFILE_H

@@ -21,87 +21,66 @@ QT_BEGIN_NAMESPACE
 class Ui_detabase
 {
 public:
-    QLabel *label;
-    QLineEdit *fullname;
     QLineEdit *username;
     QLineEdit *password;
     QLineEdit *email;
     QPushButton *pushButton;
     QLineEdit *address;
+    QLabel *label;
+    QLineEdit *firstname;
+    QLineEdit *lastname;
 
     void setupUi(QWidget *detabase)
     {
         if (detabase->objectName().isEmpty())
             detabase->setObjectName("detabase");
-        detabase->resize(464, 478);
-        label = new QLabel(detabase);
-        label->setObjectName("label");
-        label->setGeometry(QRect(12, 9, 441, 451));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/signuppage.png")));
-        label->setScaledContents(true);
-        fullname = new QLineEdit(detabase);
-        fullname->setObjectName("fullname");
-        fullname->setGeometry(QRect(90, 130, 281, 41));
-        fullname->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
-"   border: 2px solid rgb(37, 39,48);\n"
-"   border-radius: 20px;\n"
-"   border-color: #800080;\n"
-"   color: #800080;\n"
-"   background-color: #FFB6C1;\n"
-"  padding-left:85px;\n"
-"  padding-right:50px;\n"
-"}\n"
-"\n"
-"QLineEdit:Hover{\n"
-"  border: 2px solid rgb(170, 85, 127);\n"
-"}\n"
-""));
-        fullname->setDragEnabled(false);
-        fullname->setReadOnly(false);
+        detabase->resize(743, 503);
         username = new QLineEdit(detabase);
         username->setObjectName("username");
-        username->setGeometry(QRect(90, 280, 281, 41));
+        username->setGeometry(QRect(330, 340, 161, 31));
         username->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
-"   border-radius: 20px;\n"
+"   border-radius: 15px;\n"
 "   border-color: #800080;\n"
 "   color: #800080;\n"
 "   background-color: #FFB6C1;\n"
-"  padding-left:85px;\n"
-"  padding-right:50px;\n"
+"  padding-left:20px;\n"
+"  padding-right:20px;\n"
 "}\n"
 "\n"
 "QLineEdit:Hover{\n"
 "  border: 2px solid rgb(170, 85, 127);\n"
 "}\n"
 ""));
+        username->setAlignment(Qt::AlignCenter);
         password = new QLineEdit(detabase);
         password->setObjectName("password");
-        password->setGeometry(QRect(90, 330, 281, 41));
+        password->setGeometry(QRect(500, 340, 151, 31));
         password->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
-"   border-radius: 20px;\n"
+"   border-radius: 15px;\n"
 "   border-color: #800080;\n"
 "   color: #800080;\n"
 "   background-color: #FFB6C1;\n"
-"  padding-left:85px;\n"
-"  padding-right:50px;\n"
+"  padding-left:20px;\n"
+"  padding-right:20px;\n"
 "}\n"
 "\n"
 "QLineEdit:Hover{\n"
 "  border: 2px solid rgb(170, 85, 127);\n"
 "}\n"
 ""));
+        password->setAlignment(Qt::AlignCenter);
         email = new QLineEdit(detabase);
         email->setObjectName("email");
-        email->setGeometry(QRect(90, 180, 281, 41));
+        email->setGeometry(QRect(330, 260, 321, 31));
         email->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
-"   border-radius: 20px;\n"
+"   border-radius: 15px;\n"
 "   border-color: #800080;\n"
 "   color: #800080;\n"
 "   background-color: #FFB6C1;\n"
-"  padding-left:95px;\n"
+"  padding-left:50px;\n"
 "  padding-right:50px;\n"
 "}\n"
 "\n"
@@ -109,9 +88,13 @@ public:
 "  border: 2px solid rgb(170, 85, 127);\n"
 "}\n"
 ""));
+        email->setAlignment(Qt::AlignCenter);
         pushButton = new QPushButton(detabase);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(190, 390, 83, 29));
+        pushButton->setGeometry(QRect(410, 390, 151, 29));
+        QFont font;
+        font.setPointSize(8);
+        pushButton->setFont(font);
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 13px;\n"
@@ -128,14 +111,14 @@ public:
 ""));
         address = new QLineEdit(detabase);
         address->setObjectName("address");
-        address->setGeometry(QRect(90, 230, 281, 41));
+        address->setGeometry(QRect(330, 300, 321, 31));
         address->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
-"   border-radius: 20px;\n"
+"   border-radius: 15px;\n"
 "   border-color: #800080;\n"
 "   color: #800080;\n"
 "   background-color: #FFB6C1;\n"
-"  padding-left:85px;\n"
+"  padding-left:50px;\n"
 "  padding-right:50px;\n"
 "}\n"
 "\n"
@@ -143,6 +126,56 @@ public:
 "  border: 2px solid rgb(170, 85, 127);\n"
 "}\n"
 ""));
+        address->setAlignment(Qt::AlignCenter);
+        label = new QLabel(detabase);
+        label->setObjectName("label");
+        label->setGeometry(QRect(-10, 0, 751, 501));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/welcome.png")));
+        label->setScaledContents(true);
+        firstname = new QLineEdit(detabase);
+        firstname->setObjectName("firstname");
+        firstname->setGeometry(QRect(330, 220, 161, 31));
+        firstname->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"   border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 15px;\n"
+"   border-color: #800080;\n"
+"   color: #800080;\n"
+"   background-color: #FFB6C1;\n"
+"  padding-left:20px;\n"
+"  padding-right:20px;\n"
+"}\n"
+"\n"
+"QLineEdit:Hover{\n"
+"  border: 2px solid rgb(170, 85, 127);\n"
+"}\n"
+""));
+        firstname->setAlignment(Qt::AlignCenter);
+        lastname = new QLineEdit(detabase);
+        lastname->setObjectName("lastname");
+        lastname->setGeometry(QRect(500, 220, 151, 31));
+        lastname->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
+"   border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 15px;\n"
+"   border-color: #800080;\n"
+"   color: #800080;\n"
+"   background-color: #FFB6C1;\n"
+"  padding-left:20px;\n"
+"  padding-right:20px;\n"
+"}\n"
+"\n"
+"QLineEdit:Hover{\n"
+"  border: 2px solid rgb(170, 85, 127);\n"
+"}\n"
+""));
+        lastname->setAlignment(Qt::AlignCenter);
+        label->raise();
+        username->raise();
+        password->raise();
+        email->raise();
+        pushButton->raise();
+        address->raise();
+        firstname->raise();
+        lastname->raise();
 
         retranslateUi(detabase);
 
@@ -152,14 +185,16 @@ public:
     void retranslateUi(QWidget *detabase)
     {
         detabase->setWindowTitle(QCoreApplication::translate("detabase", "Form", nullptr));
-        label->setText(QString());
-        fullname->setPlaceholderText(QCoreApplication::translate("detabase", "Enter full name", nullptr));
         username->setText(QString());
         username->setPlaceholderText(QCoreApplication::translate("detabase", "Enter username", nullptr));
         password->setPlaceholderText(QCoreApplication::translate("detabase", "Enter password", nullptr));
         email->setPlaceholderText(QCoreApplication::translate("detabase", "Enter email", nullptr));
-        pushButton->setText(QCoreApplication::translate("detabase", "Sign up", nullptr));
+        pushButton->setText(QCoreApplication::translate("detabase", "Create your account", nullptr));
         address->setPlaceholderText(QCoreApplication::translate("detabase", "Enter address", nullptr));
+        label->setText(QString());
+        firstname->setText(QString());
+        firstname->setPlaceholderText(QCoreApplication::translate("detabase", "Enter firstname", nullptr));
+        lastname->setPlaceholderText(QCoreApplication::translate("detabase", "Enter lastname", nullptr));
     } // retranslateUi
 
 };

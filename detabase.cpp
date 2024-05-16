@@ -13,7 +13,6 @@ detabase::detabase(QWidget *parent)
 {
     ui->setupUi(this);
 }
-
 detabase::~detabase()
 {
     delete ui;
@@ -41,8 +40,10 @@ void detabase::on_pushButton_clicked()
     // Create users table if it doesn't exist
     QString createTableQuery = "CREATE TABLE IF NOT EXISTS users ("
                                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                               "fullname TEXT NOT NULL,"
+                               "firstname TEXT NOT NULL,"
+                               "lastname TEXT NOT NULL,"
                                "email TEXT NOT NULL,"
+                               "address TEXT NOT NULL,"
                                "username TEXT NOT NULL,"
                                "password TEXT NOT NULL)";
     if (!query.exec(createTableQuery)) {
@@ -55,15 +56,19 @@ void detabase::on_pushButton_clicked()
     qDebug() << "Table created successfully."; // Add debug message
 
     // Retrieve data from UI elements
-    QString fullname = ui->fullname->text();
+    QString firstname = ui->firstname->text();
+    QString lastname = ui->lastname->text();
     QString email = ui->email->text();
+    QString address = ui->address->text();
     QString username = ui->username->text();
     QString password = ui->password->text();
 
     // Prepare the insert query with placeholders
-    query.prepare("INSERT INTO users (fullname, email, username, password) VALUES (:fullname, :email, :username, :password)");
-    query.bindValue(":fullname", fullname);
+    query.prepare("INSERT INTO users (firstname, lastname, email, address, username, password) VALUES (:firstname, :lastname, :email, :address, :username, :password)");
+    query.bindValue(":firstname", firstname);
+    query.bindValue(":lastname", lastname);
     query.bindValue(":email", email);
+    query.bindValue(":address", address);
     query.bindValue(":username", username);
     query.bindValue(":password", password);
 
@@ -72,17 +77,15 @@ void detabase::on_pushButton_clicked()
         QMessageBox::critical(this, "Database error", "Error inserting data: " + query.lastError().text());
         qDebug() << "Error executing insert query:" << query.lastError().text(); // Add debug message
     } else {
-        // Inside the if statement where data insertion is successful
-        emit signUpSuccess();
         qDebug() << "Data inserted successfully."; // Add debug message
 
-        QMessageBox::information(this, "Database added", "Data added to database");
-        ui->fullname->clear();
+        ui->firstname->clear();
+        ui->lastname->clear();
         ui->email->clear();
+        ui->address->clear();
         ui->username->clear();
         ui->password->clear();
     }
-
-    // Close the database connection
-    sqlitedb.close();
+    this->hide();
+    QMessageBox::information(this, "Vertanom", "Your account has been successfully created. Please log in with the username and password you provided.");
 }

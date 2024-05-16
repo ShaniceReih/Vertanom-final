@@ -45,6 +45,7 @@ void Login::testDatabaseConnection()
     }
 }
 
+
 void Login::on_pushButtonLogin_clicked()
 {
     QString username = ui->enterUsername->text();
@@ -58,6 +59,7 @@ void Login::on_pushButtonLogin_clicked()
     QueryGetUser.bindValue(":username", username);
     QueryGetUser.bindValue(":password", password);
 
+
     // Execute query
     if (QueryGetUser.exec())
     {
@@ -65,6 +67,7 @@ void Login::on_pushButtonLogin_clicked()
         while (QueryGetUser.next())
         {
             UserFindCount++;
+            currentUserUsername = username;
         }
         if (UserFindCount == 1) // User name and password are correct
         {
@@ -86,6 +89,7 @@ void Login::on_pushButtonLogin_clicked()
     }
 }
 
+
 void Login::on_pushButtonCancel_clicked()
 {
     QMessageBox::StandardButton reply;
@@ -99,12 +103,11 @@ void Login::on_pushButtonCancel_clicked()
 void Login::on_pushButton_clicked()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Shanice Reih", "Create a new account?", QMessageBox::Yes | QMessageBox::No);
+    reply = QMessageBox::question(this, "Sign up", "Create a new account?", QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes)
     {
         // Create a new account
         detabase *signup = new detabase();
-        connect(signup, &detabase::signUpSuccess, this, &Login::onSignUpSuccess);
         signup->show();
     }
     else // User chose not to create a new account
@@ -113,13 +116,3 @@ void Login::on_pushButton_clicked()
     }
 }
 
-void Login::onSignUpSuccess()
-{
-    // Assuming signup is a detabase instance
-    qDebug() << "Sign-up successful, closing the sign-up screen.";
-    // Close the sign-up screen
-    QWidget *signup = qobject_cast<QWidget *>(sender());
-    if (signup) {
-        signup->close();
-    }
-}

@@ -34,10 +34,9 @@ public:
     void fetchLatestSensorValues(QSqlDatabase &db);
     void updateAbnormalCount(const QString &sensorType, int abnormalCount);
 
-
-
 signals:
     void dataUpdated();
+
 
 
 
@@ -51,16 +50,12 @@ private slots:
     void onTableViewClicked(const QModelIndex &index);
     void on_verticalScrollBar_actionTriggered(int action);
     void on_updateButton_clicked();
-
     void on_deleteEntry_clicked();
-
     void on_userButton_clicked();
-
     void on_aboutButton_clicked();
-
     void on_logoutButton_clicked();
+    void loadDataIntoTables();
 
-    void  loadDataIntoTables();
 
 private:
     Ui::MainPage *ui;
@@ -70,6 +65,10 @@ private:
     QSqlDatabase sqlitedb;
     QString selectedSensorType;
     QSet<int> deletedEntryIds; // Set to store deleted entry IDs
-};
+    void fetchUserName();
+    void fetchUserAddress();
 
+};
+extern QString currentuserName;
+extern QString currentuserAddress;
 #endif // MAINPAGE_H

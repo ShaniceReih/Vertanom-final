@@ -224,7 +224,7 @@ build Vertanom_autogen/timestamp Vertanom_autogen/mocs_compilation.cpp | ${cmake
 #############################################
 # Custom command for Vertanom_autogen\EWIEGA46WW\qrc_resource.cpp
 
-build Vertanom_autogen/EWIEGA46WW/qrc_resource.cpp | ${cmake_ninja_workdir}Vertanom_autogen/EWIEGA46WW/qrc_resource.cpp: CUSTOM_COMMAND C$:/Vertanom/Vertanom/resource.qrc CMakeFiles/Vertanom_autogen.dir/AutoRcc_resource_EWIEGA46WW_Info.json C$:/Vertanom/Vertanom/images/account.png C$:/Vertanom/Vertanom/images/sign$ up$ ui.png C$:/Vertanom/Vertanom/images/accountbut.png C$:/Vertanom/Vertanom/images/loginpage.png C$:/Vertanom/Vertanom/images/Vertanom$ (1600$ x$ 1080$ px)$ no$ bg$ 2.png C$:/Vertanom/Vertanom/images/logo.png C$:/Vertanom/Vertanom/images/aboutpagee.png C$:/Vertanom/Vertanom/images/about.png C$:/Vertanom/Vertanom/images/profilepage$ (2).png C$:/Vertanom/Vertanom/images/signuppage.png C$:/Qt/6.7.0/mingw_64/./bin/rcc.exe || Vertanom_autogen Vertanom_autogen_timestamp_deps
+build Vertanom_autogen/EWIEGA46WW/qrc_resource.cpp | ${cmake_ninja_workdir}Vertanom_autogen/EWIEGA46WW/qrc_resource.cpp: CUSTOM_COMMAND C$:/Vertanom/Vertanom/resource.qrc CMakeFiles/Vertanom_autogen.dir/AutoRcc_resource_EWIEGA46WW_Info.json C$:/Vertanom/Vertanom/images/account.png C$:/Vertanom/Vertanom/images/sign$ up$ ui.png C$:/Vertanom/Vertanom/images/accountbut.png C$:/Vertanom/Vertanom/images/loginpage.png C$:/Vertanom/Vertanom/images/Vertanom$ (1600$ x$ 1080$ px)$ no$ bg$ 2.png C$:/Vertanom/Vertanom/images/welcome.png C$:/Vertanom/Vertanom/images/logo.png C$:/Vertanom/Vertanom/images/aboutpagee.png C$:/Vertanom/Vertanom/images/about.png C$:/Vertanom/Vertanom/images/Vertanom$ (1600$ x$ 1080$ px)$ (1).png C$:/Vertanom/Vertanom/images/profilepage$ (2).png C$:/Vertanom/Vertanom/images/signuppage.png C$:/Qt/6.7.0/mingw_64/./bin/rcc.exe || Vertanom_autogen Vertanom_autogen_timestamp_deps
   COMMAND = cmd.exe /C "cd /D C:\Vertanom\Vertanom\build\Desktop_Qt_6_7_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/Vertanom_autogen.dir/AutoRcc_resource_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for resource.qrc
   restat = 1
@@ -233,7 +233,7 @@ build Vertanom_autogen/EWIEGA46WW/qrc_resource.cpp | ${cmake_ninja_workdir}Verta
 #############################################
 # Phony custom command for CMakeFiles\Vertanom_autogen_timestamp_deps
 
-build CMakeFiles/Vertanom_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Vertanom_autogen_timestamp_deps: phony C$:/Qt/6.7.0/mingw_64/./bin/moc.exe C$:/Qt/6.7.0/mingw_64/./bin/uic.exe C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Sql.a
+build CMakeFiles/Vertanom_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Vertanom_autogen_timestamp_deps: phony C$:/Qt/6.7.0/mingw_64/./bin/uic.exe C$:/Qt/6.7.0/mingw_64/./bin/moc.exe C$:/Qt/6.7.0/mingw_64/lib/libQt6Sql.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################

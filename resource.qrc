@@ -10,5 +10,8 @@
         <file>images/profilepage (2).png</file>
         <file>images/aboutpagee.png</file>
         <file>images/accountbut.png</file>
+        <file>images/Vertanom (1600 x 1080 px) (1).png</file>
+        <file>images/welcome.png</file>
     </qresource>
+    <qresource prefix="/videos"/>
 </RCC>

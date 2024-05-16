@@ -37,8 +37,8 @@ public:
     QAction *actionAbout;
     QAction *actionExit;
     QWidget *centralwidget;
-    QLabel *greetingLabel;
-    QLabel *label_2;
+    QLabel *FIRSTNAME;
+    QLabel *addRess;
     QTabWidget *tabWidget;
     QWidget *soilMoistureTab;
     QTableView *soilMoistureTable;
@@ -134,21 +134,21 @@ public:
         actionExit->setObjectName("actionExit");
         centralwidget = new QWidget(MainPage);
         centralwidget->setObjectName("centralwidget");
-        greetingLabel = new QLabel(centralwidget);
-        greetingLabel->setObjectName("greetingLabel");
-        greetingLabel->setGeometry(QRect(20, 20, 501, 41));
+        FIRSTNAME = new QLabel(centralwidget);
+        FIRSTNAME->setObjectName("FIRSTNAME");
+        FIRSTNAME->setGeometry(QRect(21, 11, 521, 63));
         QFont font1;
         font1.setPointSize(28);
         font1.setBold(true);
-        greetingLabel->setFont(font1);
-        greetingLabel->setStyleSheet(QString::fromUtf8("QLabel{\n"
+        FIRSTNAME->setFont(font1);
+        FIRSTNAME->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "}"));
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(30, 60, 321, 31));
-        label_2->setFont(font);
-        label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
+        addRess = new QLabel(centralwidget);
+        addRess->setObjectName("addRess");
+        addRess->setGeometry(QRect(30, 60, 321, 31));
+        addRess->setFont(font);
+        addRess->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "}"));
         tabWidget = new QTabWidget(centralwidget);
@@ -692,8 +692,8 @@ public:
 "}"));
         MainPage->setCentralWidget(centralwidget);
         reshData_2->raise();
-        greetingLabel->raise();
-        label_2->raise();
+        FIRSTNAME->raise();
+        addRess->raise();
         tabWidget->raise();
         reshData->raise();
         groupBox->raise();
@@ -701,7 +701,7 @@ public:
         groupBox_3->raise();
         groupBox_4->raise();
         logoutButton->raise();
-        layoutWidget->raise();
+        layoutWidget3->raise();
         label->raise();
         menubar = new QMenuBar(MainPage);
         menubar->setObjectName("menubar");
@@ -722,8 +722,8 @@ public:
         actionUser_profile->setText(QCoreApplication::translate("MainPage", "User profile", nullptr));
         actionAbout->setText(QCoreApplication::translate("MainPage", "About", nullptr));
         actionExit->setText(QCoreApplication::translate("MainPage", "Exit", nullptr));
-        greetingLabel->setText(QCoreApplication::translate("MainPage", "UserName's Vertanom", nullptr));
-        label_2->setText(QCoreApplication::translate("MainPage", "Buru-un Iligan City, Lanao del Norte", nullptr));
+        FIRSTNAME->setText(QCoreApplication::translate("MainPage", "UserName's", nullptr));
+        addRess->setText(QCoreApplication::translate("MainPage", "Buru-un Iligan City, Lanao del Norte", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(soilMoistureTab), QCoreApplication::translate("MainPage", "Soil Moisture", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(phTab), QCoreApplication::translate("MainPage", "pH", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(temperatureTab), QCoreApplication::translate("MainPage", "Temperature", nullptr));

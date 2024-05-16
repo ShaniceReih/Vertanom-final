@@ -92,8 +92,8 @@ QLabel:Hover{
    border-color: #800080;
    color: #800080;
    background-color: #FFB6C1;
-  padding-left:80px;
-  padding-right:89px;
+  padding-left:50px;
+  padding-right:50px;
 }
 
 QLabel:Hover{

@@ -60,6 +60,7 @@ endif()
 target_link_libraries(Vertanom PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(Vertanom PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
 
+
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.

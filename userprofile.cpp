@@ -47,7 +47,7 @@ void UserProfile::fetchUserInfo() {
 
     // Execute query to fetch user details for the current user
     QSqlQuery query(sqlitedb);
-    query.prepare("SELECT fullname, email, address, username, password FROM users WHERE username = ?");
+    query.prepare("SELECT firstname, lastname, email, address, username, password FROM users WHERE username = ?");
     query.addBindValue(currentUserUsername);
     if (!query.exec()) {
         QMessageBox::critical(this, "Database error", "Failed to fetch user details from database: " + query.lastError().text());
@@ -58,15 +58,17 @@ void UserProfile::fetchUserInfo() {
 
     // Check if there is a user record
     if (query.next()) {
-        QString fullname = query.value(0).toString();
-        ui->FULLNAME->setText(fullname);
-        QString email = query.value(1).toString();
+        QString firstName = query.value(0).toString(); // Fetch first data
+        QString lastName = query.value(1).toString(); // Fetch second data
+        QString fullName = firstName + " " + lastName; // Concatenate the data
+        ui->FULLNAME->setText(fullName);
+        QString email = query.value(2).toString();
         ui->EMAIL->setText(email);
-        QString address = query.value(2).toString();
+        QString address = query.value(3).toString();
         ui->ADDRESS->setText(address);
-        QString username = query.value(3).toString();
+        QString username = query.value(4).toString();
         ui->USERNAME->setText(username);
-        QString password = query.value(4).toString();
+        QString password = query.value(5).toString();
         ui->PASSWORD->setText(password);
     } else {
         QMessageBox::warning(this, "No Data", "No user data found in the database for the current user.");

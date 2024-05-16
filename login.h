@@ -26,16 +26,17 @@ public:
 private slots:
 
     void on_pushButtonCancel_clicked();
-
     void on_pushButtonLogin_clicked();
-
     void on_pushButton_clicked();
 
-    void onSignUpSuccess();
 
 private:
     Ui::Login *ui;
     QSqlDatabase sqlitedb;
     void createTable();
+    void fetchUserName();
+    void fetchUserAddress();
 };
+extern QString currentuserName;
+extern QString currentuserAddress;
 #endif // LOGIN_H
