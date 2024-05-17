@@ -347,4 +347,6 @@ C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Vertanom_autogen/
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sys/types.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/Vertanom/Vertanom/aboutpage.h \
+  C:/Vertanom/Vertanom/aboutus.h

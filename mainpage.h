@@ -14,6 +14,7 @@
 
 #include "userprofile.h"
 #include "aboutpage.h"
+#include "sensorcondition.h"
 
 namespace Ui {
 class MainPage;
@@ -29,7 +30,6 @@ public:
     void clearAllTables();
     void clearTable(QTableView *tableView);
     void fetchUserFirstName();
-    void setGreetingLabelText(const QString& firstName);
     void createAbnormalCountsTable();
     void fetchLatestSensorValues(QSqlDatabase &db);
     void updateAbnormalCount(const QString &sensorType, int abnormalCount);
@@ -48,7 +48,6 @@ private slots:
     void fetchLatestSensorValues();
     void onComboBoxIndexChanged(int index);
     void onTableViewClicked(const QModelIndex &index);
-    void on_verticalScrollBar_actionTriggered(int action);
     void on_updateButton_clicked();
     void on_deleteEntry_clicked();
     void on_userButton_clicked();
@@ -56,6 +55,8 @@ private slots:
     void on_logoutButton_clicked();
     void loadDataIntoTables();
 
+
+    void on_climaticCondition_clicked();
 
 private:
     Ui::MainPage *ui;

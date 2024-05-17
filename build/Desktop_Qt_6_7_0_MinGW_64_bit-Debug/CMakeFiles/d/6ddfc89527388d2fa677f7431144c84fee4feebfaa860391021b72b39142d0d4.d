@@ -880,6 +880,9 @@ Vertanom_autogen/timestamp: \
   C:/Vertanom/Vertanom/aboutpage.cpp \
   C:/Vertanom/Vertanom/aboutpage.h \
   C:/Vertanom/Vertanom/aboutpage.ui \
+  C:/Vertanom/Vertanom/aboutus.cpp \
+  C:/Vertanom/Vertanom/aboutus.h \
+  C:/Vertanom/Vertanom/aboutus.ui \
   .qtc/package-manager/auto-setup.cmake \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
@@ -896,6 +899,9 @@ Vertanom_autogen/timestamp: \
   C:/Vertanom/Vertanom/mainpage.h \
   C:/Vertanom/Vertanom/mainpage.ui \
   C:/Vertanom/Vertanom/resource.qrc \
+  C:/Vertanom/Vertanom/sensorcondition.cpp \
+  C:/Vertanom/Vertanom/sensorcondition.h \
+  C:/Vertanom/Vertanom/sensorcondition.ui \
   C:/Vertanom/Vertanom/userprofile.cpp \
   C:/Vertanom/Vertanom/userprofile.h \
   C:/Vertanom/Vertanom/userprofile.ui

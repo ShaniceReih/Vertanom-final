@@ -18,6 +18,7 @@ MainPage::MainPage(QWidget *parent)
     , ui(new Ui::MainPage)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Dashboard"); // Set the new window title
     fetchUserName();
     fetchUserAddress();
     on_reshCounter_clicked();
@@ -66,6 +67,20 @@ MainPage::MainPage(QWidget *parent)
     model->setHorizontalHeaderItem(1, new QStandardItem(QString("Sensor Value")));
     model->setHorizontalHeaderItem(2, new QStandardItem(QString("Status")));
     ui->temperatureTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+
+    // Assuming your table view object is named temperatureTableView
+    ui->temperatureTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->temperatureTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    ui->humidityTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui-> humidityTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    ui->soilMoistureTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->soilMoistureTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    ui->phTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->phTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
 
     // Load data into tables and tab views
@@ -139,16 +154,18 @@ void MainPage::loadDataIntoTables() {
         }
     }
 
-    //QMessageBox::information(this, "Success", "Data has been loaded into all tables.");
 
     sqlitedb.close();
 }
 
 void MainPage::onTableViewClicked(const QModelIndex &index) {
-    // Get the selected row's sensor value from the model
-    QModelIndex sensorValueIndex = index.sibling(index.row(), 1); // Assuming sensor value is in the second column
-    QVariant sensorValue = sensorValueIndex.data();
-    ui->editSensorValue->setText(sensorValue.toString());
+    // Check if the clicked index is valid
+    if (index.isValid()) {
+        // Get the selected row's sensor value from the model
+        QModelIndex sensorValueIndex = index.sibling(index.row(), 1); // Assuming sensor value is in the second column
+        QVariant sensorValue = sensorValueIndex.data();
+        ui->editSensorValue->setText(sensorValue.toString());
+    }
 }
 
 
@@ -200,6 +217,12 @@ void MainPage::fetchLatestSensorValues() {
     // Execute queries to fetch latest sensor values
     QString queryStr = "SELECT value, date_time FROM sensor_data WHERE sensor_type = ? ORDER BY date_time DESC LIMIT 1";
     QStringList sensorTypes = {"Soil Moisture", "pH", "Temperature", "Humidity"};
+
+    // Maps to hold the latest values and abnormal counts
+    QMap<QString, QString> latestValues;
+    QMap<QString, QString> latestDateTimes;
+    QMap<QString, int> abnormalCounts;
+
     for (const QString& sensorType : sensorTypes) {
         QSqlQuery query(sqlitedb);
         query.prepare(queryStr);
@@ -209,25 +232,52 @@ void MainPage::fetchLatestSensorValues() {
             continue;
         }
         if (query.next()) {
-            QString latestValue = query.value(0).toString();
-            QString latestDateTime = query.value(1).toString();
-            // Update the corresponding text label
-            if (sensorType == "Soil Moisture") {
-                ui->soilMoistureLatest->setText(latestValue);
-            } else if (sensorType == "pH") {
-                ui->phLatest->setText(latestValue);
-            } else if (sensorType == "Temperature") {
-                ui->temperatureLatest->setText(latestValue);
-            } else if (sensorType == "Humidity") {
-                ui->humidityLatest->setText(latestValue);
-            }
-            // Update the current time label
-            ui->currentTime->setText(latestDateTime);
+            latestValues[sensorType] = query.value(0).toString();
+            latestDateTimes[sensorType] = query.value(1).toString();
+        }
+
+        // Query to count abnormal statuses
+        QString countQueryStr = "SELECT COUNT(*) FROM sensor_data WHERE sensor_type = ? AND status = 'ABNORMAL'";
+        query.prepare(countQueryStr);
+        query.bindValue(0, sensorType);
+        if (!query.exec()) {
+            qDebug() << "Failed to count abnormal values for" << sensorType << ":" << query.lastError().text();
+            continue;
+        }
+        if (query.next()) {
+            abnormalCounts[sensorType] = query.value(0).toInt();
         }
     }
 
+    // Update the corresponding text labels
+    if (latestValues.contains("Soil Moisture")) {
+        ui->soilMoistureLatest->setText(latestValues["Soil Moisture"]);
+    }
+    if (latestValues.contains("pH")) {
+        ui->phLatest->setText(latestValues["pH"]);
+    }
+    if (latestValues.contains("Temperature")) {
+        ui->temperatureLatest->setText(latestValues["Temperature"]);
+    }
+    if (latestValues.contains("Humidity")) {
+        ui->humidityLatest->setText(latestValues["Humidity"]);
+    }
+
+    // Update the current time label
+    if (!latestDateTimes.isEmpty()) {
+        ui->currentTime->setText(latestDateTimes.first());
+    }
+
+    // Update the abnormal counts in the UI
+    ui->soilMoistureAbnormalCounter->setText(QString::number(abnormalCounts["Soil Moisture"]));
+    ui->pHAbnormalCounter->setText(QString::number(abnormalCounts["pH"]));
+    ui->temperatureAbnormalCounter->setText(QString::number(abnormalCounts["Temperature"]));
+    ui->humidityAbnormalCounter->setText(QString::number(abnormalCounts["Humidity"]));
+
     sqlitedb.close();
 }
+
+
 
 
 
@@ -378,7 +428,7 @@ void MainPage::on_pushButton_clicked()
         if (selectedSensor == "Temperature" && (sensorValue.toDouble() < 18 || sensorValue.toDouble() > 25)) {
             status = "ABNORMAL";
         }
-        if (selectedSensor == "Soil Moisture " && (sensorValue.toDouble() < 20 || sensorValue.toDouble() > 60)) {
+        if (selectedSensor == "Soil Moisture" && (sensorValue.toDouble() < 20 || sensorValue.toDouble() > 60)) {
             status = "ABNORMAL";
         }
         insertQuery.bindValue(":sensor_type", selectedSensor);
@@ -404,12 +454,12 @@ void MainPage::on_pushButton_clicked()
         QWidget *currentTabWidget = nullptr;
         if (selectedSensor == "pH") {
             currentTabWidget = ui->phTab;
-        } else if (selectedSensor == "Soil Moisture") {
-            currentTabWidget = ui->soilMoistureTab;
         } else if (selectedSensor == "Humidity") {
             currentTabWidget = ui->humidityTab;
         } else if (selectedSensor == "Temperature") {
             currentTabWidget = ui->temperatureTab;
+        }else if (selectedSensor == "Soil Moisture") {
+                currentTabWidget = ui->soilMoistureTab;
         } else {
             // Handle other combo box selections here
             QMessageBox::warning(this, "Not Handled", "Selected Sensor item is not handled.");
@@ -590,34 +640,22 @@ void MainPage::on_reshCounter_clicked()
     sqlitedb.close();
 }
 
-
-
-void MainPage::on_verticalScrollBar_actionTriggered(int action)
-{
-
-}
-
-
 void MainPage::on_updateButton_clicked()
 {
-    // Get the current tab widget
-    QWidget *currentTabWidget = ui->tabWidget->currentWidget();
-
-    // Check if the current tab widget is the temperatureTable
-    if (currentTabWidget != ui->temperatureTab) {
-        QMessageBox::warning(this, "Warning", "This action is only applicable in the Temperature tab.");
-        return;
+    // Determine the active tab and the corresponding table
+    QTableView *currentTableView = nullptr;
+    if (ui->tabWidget->currentIndex() == 0) {
+        currentTableView = ui->soilMoistureTable;
+    } else if (ui->tabWidget->currentIndex() == 1) {
+        currentTableView = ui->phTable;
+    } else if (ui->tabWidget->currentIndex() == 2) {
+        currentTableView = ui->temperatureTable;
+    } else if (ui->tabWidget->currentIndex() == 3) {
+        currentTableView = ui->humidityTable;
     }
 
-    // Get the current tab index
-    int currentIndex = ui->tabWidget->currentIndex();
-
-    // Find the appropriate table view based on the current tab
-    QTableView *currentTableView = ui->temperatureTable;
-
-    // Check if a row is selected in the current table view
-    if (!currentTableView) {
-        QMessageBox::warning(this, "Warning", "No table view found for the current tab.");
+    if (currentTableView == nullptr) {
+        QMessageBox::warning(this, "Error", "No valid table selected.");
         return;
     }
 
@@ -628,8 +666,11 @@ void MainPage::on_updateButton_clicked()
     }
     QModelIndex index = selection.at(0);
 
+    QAbstractItemModel *model = currentTableView->model();
+
     // Retrieve updated data from the selected row
     QString dateTime = model->data(model->index(index.row(), 0)).toString(); // Assuming dateTime is in the first column
+    QString currentStatus = model->data(model->index(index.row(), 2)).toString(); // Assuming status is in the third column
     QString sensorValue = ui->editSensorValue->text(); // Use the edited value directly
     QString selectedSensor = ui->comboBox->currentText();
 
@@ -647,14 +688,11 @@ void MainPage::on_updateButton_clicked()
     double editedValue = sensorValue.toDouble();
     if (selectedSensor == "pH" && (editedValue < 5.5 || editedValue > 6.0)) {
         status = "ABNORMAL";
-    }
-    if (selectedSensor == "Humidity" && (editedValue < 30 || editedValue > 50)) {
+    } else if (selectedSensor == "Humidity" && (editedValue < 30 || editedValue > 50)) {
         status = "ABNORMAL";
-    }
-    if (selectedSensor == "Temperature" && (editedValue < 18 || editedValue > 25)) {
+    } else if (selectedSensor == "Temperature" && (editedValue < 18 || editedValue > 25)) {
         status = "ABNORMAL";
-    }
-    if (selectedSensor == "Soil Moisture" && (editedValue < 20 || editedValue > 60)) {
+    } else if (selectedSensor == "Soil Moisture" && (editedValue < 20 || editedValue > 60)) {
         status = "ABNORMAL";
     }
 
@@ -675,10 +713,11 @@ void MainPage::on_updateButton_clicked()
 
     // Construct the SQL query
     QSqlQuery updateQuery(db);
-    updateQuery.prepare("UPDATE sensor_data SET value = :sensorValue, status = :status WHERE date_time = :dateTime");
+    updateQuery.prepare("UPDATE sensor_data SET value = :sensorValue, status = :status, date_time = datetime('now', 'localtime') WHERE date_time = :dateTime");
     updateQuery.bindValue(":sensorValue", sensorValue);
     updateQuery.bindValue(":status", status);
     updateQuery.bindValue(":dateTime", dateTime);
+
 
     // Execute the query
     if (!updateQuery.exec()) {
@@ -699,10 +738,47 @@ void MainPage::on_updateButton_clicked()
         QMessageBox::critical(this, "Database error", "Failed to commit transaction: " + db.lastError().text());
         return;
     }
+    // Get the current date and time in the desired format
+    QString currentDateTime = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
 
     // Update the model item to reflect changes
+    model->setData(model->index(index.row(), 0), currentDateTime); // Update timestamp
     model->setData(model->index(index.row(), 1), sensorValue); // Assuming sensor value is in the second column
     model->setData(model->index(index.row(), 2), status); // Assuming status is in the third column
+
+    // Update abnormal count dynamically
+    if (currentStatus == "ABNORMAL" && status == "NORMAL") {
+        if (selectedSensor == "pH") {
+            int count = ui->pHAbnormalCounter->text().toInt();
+            ui->pHAbnormalCounter->setText(QString::number(count - 1));
+        } else if (selectedSensor == "Humidity") {
+            int count = ui->humidityAbnormalCounter->text().toInt();
+            ui->humidityAbnormalCounter->setText(QString::number(count - 1));
+        } else if (selectedSensor == "Temperature") {
+            int count = ui->temperatureAbnormalCounter->text().toInt();
+            ui->temperatureAbnormalCounter->setText(QString::number(count - 1));
+        } else if (selectedSensor == "Soil Moisture") {
+            int count = ui->soilMoistureAbnormalCounter->text().toInt();
+            ui->soilMoistureAbnormalCounter->setText(QString::number(count - 1));
+        }
+    } else if (currentStatus == "NORMAL" && status == "ABNORMAL") {
+        if (selectedSensor == "pH") {
+            int count = ui->pHAbnormalCounter->text().toInt();
+            ui->pHAbnormalCounter->setText(QString::number(count + 1));
+        } else if (selectedSensor == "Humidity") {
+            int count = ui->humidityAbnormalCounter->text().toInt();
+            ui->humidityAbnormalCounter->setText(QString::number(count + 1));
+        } else if (selectedSensor == "Temperature") {
+            int count = ui->temperatureAbnormalCounter->text().toInt();
+            ui->temperatureAbnormalCounter->setText(QString::number(count + 1));
+        } else if (selectedSensor == "Soil Moisture") {
+            int count = ui->soilMoistureAbnormalCounter->text().toInt();
+            ui->soilMoistureAbnormalCounter->setText(QString::number(count + 1));
+        }
+    }
+
+    // Refresh the sensor values and abnormal counts
+    fetchLatestSensorValues();
 
     emit dataUpdated();
 
@@ -713,9 +789,28 @@ void MainPage::on_updateButton_clicked()
 
 
 
+
+
 void MainPage::on_deleteEntry_clicked()
 {
-    QModelIndexList selection = ui->temperatureTable->selectionModel()->selectedRows();
+    // Determine the active tab and the corresponding table
+    QTableView *currentTable = nullptr;
+    if (ui->tabWidget->currentIndex() == 0) {
+        currentTable = ui->soilMoistureTable;
+    } else if (ui->tabWidget->currentIndex() == 1) {
+        currentTable = ui->phTable;
+    } else if (ui->tabWidget->currentIndex() == 2) {
+        currentTable = ui->temperatureTable;
+    } else if (ui->tabWidget->currentIndex() == 3) {
+        currentTable = ui->humidityTable;
+    }
+
+    if (currentTable == nullptr) {
+        QMessageBox::warning(this, "Error", "No valid table selected.");
+        return;
+    }
+
+    QModelIndexList selection = currentTable->selectionModel()->selectedRows();
 
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
@@ -745,6 +840,7 @@ void MainPage::on_deleteEntry_clicked()
     }
 
     QSqlQuery query;
+    QAbstractItemModel *model = currentTable->model();
     foreach(const QModelIndex &index, selection) {
         int row = index.row();
         QString dateTime = model->data(model->index(row, 0)).toString(); // Assuming dateTime is in the first column
@@ -762,6 +858,9 @@ void MainPage::on_deleteEntry_clicked()
         }
     }
 }
+
+
+
 
 void MainPage::on_userButton_clicked()
 {
@@ -852,3 +951,10 @@ void MainPage::fetchUserAddress() {
         QMessageBox::warning(this, "No Data", "No user data found in the database for the current user.");
     }
 }
+
+void MainPage::on_climaticCondition_clicked()
+{
+    sensorCondition *table = new sensorCondition();
+    table->show();
+}
+

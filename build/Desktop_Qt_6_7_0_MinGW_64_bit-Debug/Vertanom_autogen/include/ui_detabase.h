@@ -34,10 +34,10 @@ public:
     {
         if (detabase->objectName().isEmpty())
             detabase->setObjectName("detabase");
-        detabase->resize(743, 503);
+        detabase->resize(773, 523);
         username = new QLineEdit(detabase);
         username->setObjectName("username");
-        username->setGeometry(QRect(330, 340, 161, 31));
+        username->setGeometry(QRect(380, 310, 331, 31));
         username->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 15px;\n"
@@ -55,7 +55,7 @@ public:
         username->setAlignment(Qt::AlignCenter);
         password = new QLineEdit(detabase);
         password->setObjectName("password");
-        password->setGeometry(QRect(500, 340, 151, 31));
+        password->setGeometry(QRect(380, 350, 331, 31));
         password->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 15px;\n"
@@ -73,7 +73,7 @@ public:
         password->setAlignment(Qt::AlignCenter);
         email = new QLineEdit(detabase);
         email->setObjectName("email");
-        email->setGeometry(QRect(330, 260, 321, 31));
+        email->setGeometry(QRect(380, 230, 331, 31));
         email->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 15px;\n"
@@ -91,27 +91,22 @@ public:
         email->setAlignment(Qt::AlignCenter);
         pushButton = new QPushButton(detabase);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(410, 390, 151, 29));
+        pushButton->setGeometry(QRect(470, 400, 151, 21));
         QFont font;
         font.setPointSize(8);
+        font.setBold(true);
         pushButton->setFont(font);
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"   border: 2px solid rgb(37, 39,48);\n"
-"   border-radius: 13px;\n"
+"color: #FFB6C1;\n"
+"background-color: #472F5B;\n"
+"font-weight: bold;\n"
+" border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 10px;\n"
 "   border-color: #800080;\n"
-"   color: #800080;\n"
-"   background-color: #FFB6C1;\n"
-"}\n"
-"\n"
-"QPushButton:Hover{\n"
-"  border: 2px solid rgb(170, 85, 127);\n"
-"}\n"
-"\n"
-"\n"
-""));
+"}"));
         address = new QLineEdit(detabase);
         address->setObjectName("address");
-        address->setGeometry(QRect(330, 300, 321, 31));
+        address->setGeometry(QRect(380, 270, 331, 31));
         address->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 15px;\n"
@@ -129,12 +124,12 @@ public:
         address->setAlignment(Qt::AlignCenter);
         label = new QLabel(detabase);
         label->setObjectName("label");
-        label->setGeometry(QRect(-10, 0, 751, 501));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/welcome.png")));
+        label->setGeometry(QRect(0, 0, 771, 521));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/veve.png")));
         label->setScaledContents(true);
         firstname = new QLineEdit(detabase);
         firstname->setObjectName("firstname");
-        firstname->setGeometry(QRect(330, 220, 161, 31));
+        firstname->setGeometry(QRect(380, 190, 161, 31));
         firstname->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 15px;\n"
@@ -152,7 +147,7 @@ public:
         firstname->setAlignment(Qt::AlignCenter);
         lastname = new QLineEdit(detabase);
         lastname->setObjectName("lastname");
-        lastname->setGeometry(QRect(500, 220, 151, 31));
+        lastname->setGeometry(QRect(550, 190, 161, 31));
         lastname->setStyleSheet(QString::fromUtf8("QLineEdit{\n"
 "   border: 2px solid rgb(37, 39,48);\n"
 "   border-radius: 15px;\n"

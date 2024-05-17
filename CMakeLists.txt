@@ -38,6 +38,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         resource.qrc
         userprofile.h userprofile.cpp userprofile.ui
         aboutpage.h aboutpage.cpp aboutpage.ui
+        aboutus.h aboutus.cpp aboutus.ui
+        sensorcondition.h sensorcondition.cpp sensorcondition.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Vertanom APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

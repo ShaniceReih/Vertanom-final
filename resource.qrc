@@ -1,17 +1,15 @@
 <RCC>
     <qresource prefix="/images">
         <file>images/logo.png</file>
-        <file>images/Vertanom (1600 x 1080 px) no bg 2.png</file>
-        <file>images/sign up ui.png</file>
         <file>images/about.png</file>
-        <file>images/account.png</file>
-        <file>images/signuppage.png</file>
         <file>images/loginpage.png</file>
         <file>images/profilepage (2).png</file>
-        <file>images/aboutpagee.png</file>
         <file>images/accountbut.png</file>
-        <file>images/Vertanom (1600 x 1080 px) (1).png</file>
-        <file>images/welcome.png</file>
+        <file>images/vertabout.png</file>
+        <file>images/aboutUs.png</file>
+        <file>images/dedma.png</file>
+        <file>images/veve.png</file>
+        <file>images/sensors.png</file>
+        <file>images/table.png</file>
     </qresource>
-    <qresource prefix="/videos"/>
 </RCC>

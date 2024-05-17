@@ -878,6 +878,8 @@ Vertanom_autogen/timestamp: \
 	C:/Vertanom/Vertanom/CMakeLists.txt \
 	C:/Vertanom/Vertanom/aboutpage.cpp \
 	C:/Vertanom/Vertanom/aboutpage.h \
+	C:/Vertanom/Vertanom/aboutus.cpp \
+	C:/Vertanom/Vertanom/aboutus.h \
 	C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
 	C:/Vertanom/Vertanom/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
@@ -891,11 +893,15 @@ Vertanom_autogen/timestamp: \
 	C:/Vertanom/Vertanom/mainpage.cpp \
 	C:/Vertanom/Vertanom/mainpage.h \
 	C:/Vertanom/Vertanom/resource.qrc \
+	C:/Vertanom/Vertanom/sensorcondition.cpp \
+	C:/Vertanom/Vertanom/sensorcondition.h \
 	C:/Vertanom/Vertanom/userprofile.cpp \
 	C:/Vertanom/Vertanom/userprofile.h \
 	C:/Vertanom/Vertanom/aboutpage.ui \
+	C:/Vertanom/Vertanom/aboutus.ui \
 	C:/Vertanom/Vertanom/detabase.ui \
 	C:/Vertanom/Vertanom/login.ui \
 	C:/Vertanom/Vertanom/mainpage.ui \
+	C:/Vertanom/Vertanom/sensorcondition.ui \
 	C:/Vertanom/Vertanom/userprofile.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

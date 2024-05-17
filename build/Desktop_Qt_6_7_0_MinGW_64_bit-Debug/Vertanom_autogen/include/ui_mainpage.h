@@ -72,7 +72,6 @@ public:
     QLabel *currentTime;
     QGroupBox *groupBox_2;
     QFrame *line_2;
-    QPushButton *reshCounter;
     QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_10;
@@ -90,6 +89,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_6;
     QLabel *soilMoistureAbnormalCounter;
+    QPushButton *reshCounter;
     QGroupBox *groupBox_3;
     QWidget *layoutWidget8;
     QVBoxLayout *verticalLayout_3;
@@ -106,6 +106,7 @@ public:
     QLineEdit *editSensorValue;
     QPushButton *updateButton;
     QPushButton *deleteEntry;
+    QPushButton *climaticCondition;
     QPushButton *logoutButton;
     QWidget *layoutWidget9;
     QHBoxLayout *horizontalLayout_11;
@@ -119,7 +120,7 @@ public:
     {
         if (MainPage->objectName().isEmpty())
             MainPage->setObjectName("MainPage");
-        MainPage->resize(1197, 737);
+        MainPage->resize(1181, 780);
         QFont font;
         font.setPointSize(10);
         MainPage->setFont(font);
@@ -136,7 +137,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         FIRSTNAME = new QLabel(centralwidget);
         FIRSTNAME->setObjectName("FIRSTNAME");
-        FIRSTNAME->setGeometry(QRect(21, 11, 521, 63));
+        FIRSTNAME->setGeometry(QRect(20, 30, 521, 63));
         QFont font1;
         font1.setPointSize(28);
         font1.setBold(true);
@@ -146,14 +147,14 @@ public:
 "}"));
         addRess = new QLabel(centralwidget);
         addRess->setObjectName("addRess");
-        addRess->setGeometry(QRect(30, 60, 321, 31));
+        addRess->setGeometry(QRect(20, 80, 321, 31));
         addRess->setFont(font);
         addRess->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
 "}"));
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName("tabWidget");
-        tabWidget->setGeometry(QRect(500, 140, 641, 331));
+        tabWidget->setGeometry(QRect(510, 160, 641, 331));
         QFont font2;
         font2.setPointSize(11);
         font2.setBold(true);
@@ -211,7 +212,7 @@ public:
         tabWidget->addTab(humidityTab, QString());
         reshData = new QPushButton(centralwidget);
         reshData->setObjectName("reshData");
-        reshData->setGeometry(QRect(500, 480, 641, 21));
+        reshData->setGeometry(QRect(510, 500, 641, 21));
         reshData->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "color: #FFB6C1;\n"
 "background-color: #472F5B;\n"
@@ -222,7 +223,7 @@ public:
 "}"));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(500, 510, 641, 191));
+        groupBox->setGeometry(QRect(510, 530, 641, 221));
         groupBox->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
 "background-color: #FFB6C1;\n"
 " border: 2px solid rgb(37, 39,48);\n"
@@ -241,7 +242,7 @@ public:
 "}"));
         layoutWidget = new QWidget(groupBox);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(22, 80, 421, 22));
+        layoutWidget->setGeometry(QRect(20, 80, 421, 22));
         horizontalLayout_7 = new QHBoxLayout(layoutWidget);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -270,7 +271,7 @@ public:
 
         layoutWidget1 = new QWidget(groupBox);
         layoutWidget1->setObjectName("layoutWidget1");
-        layoutWidget1->setGeometry(QRect(22, 160, 421, 26));
+        layoutWidget1->setGeometry(QRect(20, 170, 421, 26));
         horizontalLayout_10 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
@@ -296,7 +297,7 @@ public:
 
         layoutWidget2 = new QWidget(groupBox);
         layoutWidget2->setObjectName("layoutWidget2");
-        layoutWidget2->setGeometry(QRect(23, 131, 421, 22));
+        layoutWidget2->setGeometry(QRect(20, 140, 421, 22));
         horizontalLayout_9 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_9->setObjectName("horizontalLayout_9");
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
@@ -322,7 +323,7 @@ public:
 
         layoutWidget3 = new QWidget(groupBox);
         layoutWidget3->setObjectName("layoutWidget3");
-        layoutWidget3->setGeometry(QRect(23, 109, 421, 22));
+        layoutWidget3->setGeometry(QRect(20, 110, 421, 22));
         horizontalLayout_8 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
@@ -374,7 +375,7 @@ public:
 "}"));
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setGeometry(QRect(20, 490, 461, 211));
+        groupBox_2->setGeometry(QRect(20, 540, 461, 211));
         groupBox_2->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
 "background-color: #FFB6C1;\n"
 " border: 2px solid rgb(37, 39,48);\n"
@@ -387,17 +388,6 @@ public:
         line_2->setStyleSheet(QString::fromUtf8("color: #472F5B;"));
         line_2->setFrameShape(QFrame::Shape::HLine);
         line_2->setFrameShadow(QFrame::Shadow::Sunken);
-        reshCounter = new QPushButton(groupBox_2);
-        reshCounter->setObjectName("reshCounter");
-        reshCounter->setGeometry(QRect(10, 180, 441, 24));
-        reshCounter->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"color: #FFB6C1;\n"
-"background-color: #472F5B;\n"
-"font-weight: bold;\n"
-" border: 2px solid rgb(37, 39,48);\n"
-"   border-radius: 10px;\n"
-"   border-color: #800080;\n"
-"}"));
         layoutWidget4 = new QWidget(groupBox_2);
         layoutWidget4->setObjectName("layoutWidget4");
         layoutWidget4->setGeometry(QRect(10, 120, 431, 22));
@@ -426,7 +416,7 @@ public:
 
         label_5 = new QLabel(groupBox_2);
         label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(12, 12, 428, 40));
+        label_5->setGeometry(QRect(10, 10, 428, 40));
         label_5->setFont(font3);
         label_5->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "color: #472F5B;\n"
@@ -486,7 +476,7 @@ public:
 
         layoutWidget7 = new QWidget(groupBox_2);
         layoutWidget7->setObjectName("layoutWidget7");
-        layoutWidget7->setGeometry(QRect(10, 60, 431, 22));
+        layoutWidget7->setGeometry(QRect(10, 60, 431, 26));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget7);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -510,9 +500,21 @@ public:
 
         horizontalLayout_2->addWidget(soilMoistureAbnormalCounter);
 
+        reshCounter = new QPushButton(groupBox_2);
+        reshCounter->setObjectName("reshCounter");
+        reshCounter->setGeometry(QRect(10, 180, 431, 21));
+        reshCounter->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: #FFB6C1;\n"
+"background-color: #472F5B;\n"
+"font-weight: bold;\n"
+" border: 2px solid rgb(37, 39,48);\n"
+"   border-radius: 10px;\n"
+"   border-color: #800080;\n"
+"}"));
+        reshCounter->setFlat(true);
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName("groupBox_3");
-        groupBox_3->setGeometry(QRect(20, 140, 461, 171));
+        groupBox_3->setGeometry(QRect(20, 160, 461, 211));
         groupBox_3->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
 "background-color: #FFB6C1;\n"
 " border: 2px solid rgb(37, 39,48);\n"
@@ -521,7 +523,7 @@ public:
 "}"));
         layoutWidget8 = new QWidget(groupBox_3);
         layoutWidget8->setObjectName("layoutWidget8");
-        layoutWidget8->setGeometry(QRect(10, 10, 441, 151));
+        layoutWidget8->setGeometry(QRect(10, 10, 441, 185));
         verticalLayout_3 = new QVBoxLayout(layoutWidget8);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -599,7 +601,7 @@ public:
 
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName("groupBox_4");
-        groupBox_4->setGeometry(QRect(20, 320, 461, 161));
+        groupBox_4->setGeometry(QRect(20, 380, 461, 151));
         groupBox_4->setStyleSheet(QString::fromUtf8("QGroupBox{\n"
 "background-color: #FFB6C1;\n"
 " border: 2px solid rgb(37, 39,48);\n"
@@ -641,9 +643,18 @@ public:
 "   border-radius: 10px;\n"
 "   border-color: #800080;\n"
 "}"));
+        climaticCondition = new QPushButton(groupBox_4);
+        climaticCondition->setObjectName("climaticCondition");
+        climaticCondition->setGeometry(QRect(390, 20, 61, 31));
+        climaticCondition->setStyleSheet(QString::fromUtf8(""));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/images/sensors.png"), QSize(), QIcon::Normal, QIcon::Off);
+        climaticCondition->setIcon(icon);
+        climaticCondition->setIconSize(QSize(35, 35));
+        climaticCondition->setFlat(true);
         logoutButton = new QPushButton(centralwidget);
         logoutButton->setObjectName("logoutButton");
-        logoutButton->setGeometry(QRect(1070, 60, 101, 31));
+        logoutButton->setGeometry(QRect(1060, 80, 101, 31));
         logoutButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "color: #FFB6C1;\n"
 "background-color: #472F5B;\n"
@@ -654,15 +665,15 @@ public:
 "}"));
         layoutWidget9 = new QWidget(centralwidget);
         layoutWidget9->setObjectName("layoutWidget9");
-        layoutWidget9->setGeometry(QRect(950, 50, 105, 46));
+        layoutWidget9->setGeometry(QRect(940, 70, 105, 46));
         horizontalLayout_11 = new QHBoxLayout(layoutWidget9);
         horizontalLayout_11->setObjectName("horizontalLayout_11");
         horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
         userButton = new QPushButton(layoutWidget9);
         userButton->setObjectName("userButton");
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/images/images/accountbut.png"), QSize(), QIcon::Normal, QIcon::Off);
-        userButton->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/images/images/accountbut.png"), QSize(), QIcon::Normal, QIcon::Off);
+        userButton->setIcon(icon1);
         userButton->setIconSize(QSize(35, 35));
         userButton->setFlat(true);
 
@@ -670,9 +681,9 @@ public:
 
         aboutButton = new QPushButton(layoutWidget9);
         aboutButton->setObjectName("aboutButton");
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/images/images/about.png"), QSize(), QIcon::Normal, QIcon::Off);
-        aboutButton->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/images/images/about.png"), QSize(), QIcon::Normal, QIcon::Off);
+        aboutButton->setIcon(icon2);
         aboutButton->setIconSize(QSize(35, 35));
         aboutButton->setFlat(true);
 
@@ -680,12 +691,12 @@ public:
 
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(560, 0, 91, 91));
+        label->setGeometry(QRect(560, 20, 91, 91));
         label->setPixmap(QPixmap(QString::fromUtf8(":/images/images/logo.png")));
         label->setScaledContents(true);
         reshData_2 = new QPushButton(centralwidget);
         reshData_2->setObjectName("reshData_2");
-        reshData_2->setGeometry(QRect(0, 100, 1201, 16));
+        reshData_2->setGeometry(QRect(0, 120, 1201, 16));
         reshData_2->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "\n"
 "background-color: #472F5B;\n"
@@ -701,16 +712,16 @@ public:
         groupBox_3->raise();
         groupBox_4->raise();
         logoutButton->raise();
-        layoutWidget3->raise();
+        layoutWidget6->raise();
         label->raise();
         menubar = new QMenuBar(MainPage);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1197, 25));
+        menubar->setGeometry(QRect(0, 0, 1181, 25));
         MainPage->setMenuBar(menubar);
 
         retranslateUi(MainPage);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainPage);
@@ -732,26 +743,26 @@ public:
         groupBox->setTitle(QString());
         label_14->setText(QCoreApplication::translate("MainPage", "Lastest Climatic Data", nullptr));
         label_15->setText(QCoreApplication::translate("MainPage", "Soil Moisture:", nullptr));
-        soilMoistureLatest->setText(QCoreApplication::translate("MainPage", " <value>", nullptr));
+        soilMoistureLatest->setText(QCoreApplication::translate("MainPage", "0", nullptr));
         label_21->setText(QCoreApplication::translate("MainPage", "Humidity:", nullptr));
-        humidityLatest->setText(QCoreApplication::translate("MainPage", " <value>", nullptr));
+        humidityLatest->setText(QCoreApplication::translate("MainPage", "0", nullptr));
         label_19->setText(QCoreApplication::translate("MainPage", "Temperature:", nullptr));
-        temperatureLatest->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        temperatureLatest->setText(QCoreApplication::translate("MainPage", "0", nullptr));
         label_17->setText(QCoreApplication::translate("MainPage", "pH:", nullptr));
-        phLatest->setText(QCoreApplication::translate("MainPage", " <value>", nullptr));
+        phLatest->setText(QCoreApplication::translate("MainPage", "0", nullptr));
         label_23->setText(QCoreApplication::translate("MainPage", "Updated as of ", nullptr));
         currentTime->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
         groupBox_2->setTitle(QString());
-        reshCounter->setText(QCoreApplication::translate("MainPage", "Refresh Counter", nullptr));
         label_10->setText(QCoreApplication::translate("MainPage", "Temperature:", nullptr));
-        temperatureAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        temperatureAbnormalCounter->setText(QCoreApplication::translate("MainPage", "0", nullptr));
         label_5->setText(QCoreApplication::translate("MainPage", "Abnormal Climatic Parameters", nullptr));
         label_8->setText(QCoreApplication::translate("MainPage", "pH", nullptr));
-        pHAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        pHAbnormalCounter->setText(QCoreApplication::translate("MainPage", "0", nullptr));
         label_12->setText(QCoreApplication::translate("MainPage", "Humidity", nullptr));
-        humidityAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        humidityAbnormalCounter->setText(QCoreApplication::translate("MainPage", "0", nullptr));
         label_6->setText(QCoreApplication::translate("MainPage", "Soil Moisture:", nullptr));
-        soilMoistureAbnormalCounter->setText(QCoreApplication::translate("MainPage", "<value>", nullptr));
+        soilMoistureAbnormalCounter->setText(QCoreApplication::translate("MainPage", "0", nullptr));
+        reshCounter->setText(QCoreApplication::translate("MainPage", "Refresh Counter", nullptr));
         groupBox_3->setTitle(QString());
         label_3->setText(QCoreApplication::translate("MainPage", "Input Climatic Data Parameter", nullptr));
         comboBox->setItemText(0, QCoreApplication::translate("MainPage", "Soil Moisture", nullptr));
@@ -765,6 +776,7 @@ public:
         label_16->setText(QCoreApplication::translate("MainPage", "Sensor Value", nullptr));
         updateButton->setText(QCoreApplication::translate("MainPage", "Update", nullptr));
         deleteEntry->setText(QCoreApplication::translate("MainPage", "Delete", nullptr));
+        climaticCondition->setText(QString());
         logoutButton->setText(QCoreApplication::translate("MainPage", "Log out", nullptr));
         userButton->setText(QString());
         aboutButton->setText(QString());

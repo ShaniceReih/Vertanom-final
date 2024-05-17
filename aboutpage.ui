@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>455</width>
-    <height>468</height>
+    <width>493</width>
+    <height>516</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,17 +18,43 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>451</width>
-     <height>461</height>
+     <width>491</width>
+     <height>511</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resource.qrc">:/images/images/aboutpagee.png</pixmap>
+    <pixmap resource="resource.qrc">:/images/images/vertabout.png</pixmap>
    </property>
    <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>450</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: #FFB6C1;
+background-color: #472F5B;
+font-weight: bold;
+ border: 2px solid rgb(37, 39,48);
+   border-radius: 10px;
+   border-color: #800080;
+}</string>
+   </property>
+   <property name="text">
+    <string>About the Developers</string>
+   </property>
+   <property name="flat">
     <bool>true</bool>
    </property>
   </widget>
