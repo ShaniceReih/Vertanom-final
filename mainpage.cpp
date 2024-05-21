@@ -92,7 +92,7 @@ MainPage::MainPage(QWidget *parent)
 void MainPage::loadDataIntoTables() {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for loading data into tables..."; // Add debug message
 
@@ -202,7 +202,7 @@ void MainPage::onComboBoxIndexChanged(int index) {
 void MainPage::fetchLatestSensorValues() {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for fetching latest sensor values..."; // Add debug message
 
@@ -286,7 +286,7 @@ void MainPage::createAbnormalCountsTable()
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for creating abnormal counts table..."; // Add debug message
 
@@ -322,7 +322,7 @@ void MainPage::updateAbnormalCount(const QString &sensorType, int abnormalCount)
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for updating abnormal counts..."; // Add debug message
 
@@ -366,7 +366,7 @@ void MainPage::on_pushButton_clicked()
 {
     // Add the new SQLite database connection
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database..."; // Add debug message
 
@@ -484,13 +484,18 @@ void MainPage::on_pushButton_clicked()
 
         QMessageBox::information(this, "Success", selectedSensor + " with a value of " + userInput + " has been saved.");
     }
+
+    // Refresh the sensor values and abnormal counts
+    fetchLatestSensorValues();
+
+    emit dataUpdated();
 }
 
 void MainPage::on_reshData_clicked()
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for refreshing data..."; // Add debug message
 
@@ -603,7 +608,7 @@ void MainPage::on_reshCounter_clicked()
 {
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for fetching latest abnormal counts..."; // Add debug message
 
@@ -814,7 +819,7 @@ void MainPage::on_deleteEntry_clicked()
 
     // Establish connection to the SQLite database
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for refreshing data..."; // Add debug message
 
@@ -855,7 +860,12 @@ void MainPage::on_deleteEntry_clicked()
             QMessageBox::critical(this, "Database error", "Error deleting data: " + query.lastError().text());
         } else {
             model->removeRow(row);
+            // Refresh the sensor values and abnormal counts
+
         }
+        fetchLatestSensorValues();
+
+        emit dataUpdated();
     }
 }
 
@@ -889,7 +899,7 @@ void MainPage::on_logoutButton_clicked()
 void MainPage::fetchUserName() {
 
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for refreshing data..."; // Add debug message
 
@@ -922,7 +932,7 @@ void MainPage::fetchUserName() {
 void MainPage::fetchUserAddress() {
 
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database for refreshing data..."; // Add debug message
 

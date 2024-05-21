@@ -12,6 +12,7 @@ detabase::detabase(QWidget *parent)
     , ui(new Ui::detabase)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Sign Up"); // Set the new window title
 }
 detabase::~detabase()
 {
@@ -23,7 +24,7 @@ void detabase::on_pushButton_clicked()
     // Add the new SQLite database connection
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
 
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db"); // Corrected the path
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db"); // Corrected the path
 
     qDebug() << "Attempting to open database..."; // Add debug message
 

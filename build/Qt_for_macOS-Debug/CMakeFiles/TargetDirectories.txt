@@ -1,0 +1,2 @@
+/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/build/Qt_for_macOS-Debug/CMakeFiles/edit_cache.dir
+/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/build/Qt_for_macOS-Debug/CMakeFiles/rebuild_cache.dir

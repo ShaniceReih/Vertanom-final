@@ -17,7 +17,7 @@ UserProfile::UserProfile(QWidget *parent)
 
     // Establish connection to the SQLite database
     sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("C:/Vertanom/Vertanom/signup.db");
+    sqlitedb.setDatabaseName("/Users/tristanlistanco/Developer/BS-CA/CCC102/System/Vertanom-final/signup.db");
 
     qDebug() << "Attempting to open database for fetching user details...";
 

@@ -251,7 +251,7 @@ color: #472F5B;
 }</string>
      </property>
      <property name="text">
-      <string>Lastest Climatic Data</string>
+      <string>Latest Climatic Data</string>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget">
@@ -1061,8 +1061,8 @@ font-weight: bold;
    <widget class="QPushButton" name="logoutButton">
     <property name="geometry">
      <rect>
-      <x>1060</x>
-      <y>80</y>
+      <x>1020</x>
+      <y>70</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -1084,10 +1084,10 @@ font-weight: bold;
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>940</x>
-      <y>70</y>
-      <width>105</width>
-      <height>46</height>
+      <x>860</x>
+      <y>60</y>
+      <width>152</width>
+      <height>53</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_11">
@@ -1190,7 +1190,7 @@ background-color: #472F5B;
      <x>0</x>
      <y>0</y>
      <width>1181</width>
-     <height>25</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
